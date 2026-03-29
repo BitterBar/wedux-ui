@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { parseArgs } = require('util');
-const { exec } = require('./utils');
+const { exec, execInteractive } = require('./utils');
 
 const pkgPath = path.resolve(__dirname, '../package.json');
 const getPkg = () => JSON.parse(fs.readFileSync(pkgPath, 'utf-8'));
@@ -23,7 +23,7 @@ const { values: args, positionals } = parseArgs({
 
 const isDryRun = args.dry;
 
-const run = async (bin, runArgs, opts = {}) => exec(bin, runArgs, { stdio: 'inherit', ...opts });
+const run = async (bin, runArgs, opts = {}) => execInteractive(bin, runArgs, opts);
 
 const dryRun = async (bin, runArgs, opts = {}) =>
   console.log(`\x1b[34m[dryrun] ${bin} ${runArgs.join(' ')}\x1b[0m`, opts);
@@ -122,7 +122,7 @@ async function main() {
   versionUpdated = true;
 
   if (!args.skipGit) {
-    const { stdout } = await run('git', ['diff'], { stdio: 'pipe' });
+    const { stdout } = await exec('git', ['diff']);
     if (stdout) {
       step('\nCommitting changes...');
       await runIfNotDry('git', ['add', '-A']);
