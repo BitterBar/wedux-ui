@@ -1,0 +1,74 @@
+<div class="demo-page">
+  <scroll-view scroll-y enhanced="{{true}}" show-scrollbar="{{false}}" class="demo-scroll">
+    <view class="demo-content">
+      <view class="comp-header">
+        <view class="comp-header__tag">upload</view>
+        <view class="comp-header__desc">
+          上传组件，支持图片、视频、文件上传，提供 grid 和 list 两种展示模式。
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">Props</view>
+        <view class="prop-row" wx:for="{{props}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">基础</view>
+        <w-upload fileList="{{list1}}" bind:update:fileList="onList1Change" accept="media" />
+        <view class="demo-hint">已选 {{list1.length}} 个文件</view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">多选</view>
+        <w-upload fileList="{{list2}}" multiple bind:update:fileList="onList2Change" />
+      </view>
+
+      <view class="section">
+        <view class="section__title">列表模式</view>
+        <w-upload fileList="{{list3}}" mode="list" multiple bind:update:fileList="onList3Change" />
+      </view>
+
+      <view class="section">
+        <view class="section__title">限制数量（最多 3 个）</view>
+        <w-upload
+          fileList="{{list4}}"
+          multiple
+          maxCount="{{3}}"
+          bind:update:fileList="onList4Change"
+          bind:overlimit="onOverlimit"
+        />
+        <view class="demo-hint">已选 {{list4.length}} / 3</view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">只读</view>
+        <w-upload fileList="{{list5}}" readonly />
+      </view>
+
+      <view class="section">
+        <view class="section__title">禁用</view>
+        <w-upload fileList="{{list6}}" disabled />
+      </view>
+
+      <view class="section">
+        <view class="section__title">文件模式（列表）</view>
+        <w-upload
+          fileList="{{list7}}"
+          accept="file"
+          mode="list"
+          multiple
+          bind:update:fileList="onList7Change"
+          bind:oversize="onOversize"
+        />
+      </view>
+    </view>
+  </scroll-view>
+</div>

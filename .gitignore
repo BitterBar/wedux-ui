@@ -1,0 +1,14 @@
+node_modules/
+miniprogram_dist/
+
+# Local files
+*.local.json
+*.local
+*.private.config.json
+
+# Npm or pnpm lock files
+pnpm-lock.yaml
+
+# Superpowers
+.superpowers/
+docs/superpowers/

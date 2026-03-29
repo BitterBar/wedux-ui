@@ -1,0 +1,88 @@
+<div class="demo-page">
+  <scroll-view scroll-y enhanced="{{true}}" show-scrollbar="{{false}}" class="demo-scroll">
+    <view class="demo-content">
+      <view class="comp-header">
+        <view class="comp-header__tag">avatar</view>
+        <view class="comp-header__desc">头像组件，支持图片、文字和图标，可组合为堆叠头像组。</view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">Props</view>
+        <view class="prop-row" wx:for="{{props}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">文字头像</view>
+        <w-flex align="center">
+          <w-avatar size="large" color="#1677ff"><text style="color: #fff">大</text></w-avatar>
+          <w-avatar size="medium" color="#52c41a"><text style="color: #fff">中</text></w-avatar>
+          <w-avatar size="small" color="#ff4d4f"><text style="color: #fff">小</text></w-avatar>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">圆形 round</view>
+        <w-flex align="center">
+          <w-avatar size="large" round color="#722ed1">
+            <text style="color: #fff">王</text>
+          </w-avatar>
+          <w-avatar size="medium" round color="#13c2c2">
+            <text style="color: #fff">李</text>
+          </w-avatar>
+          <w-avatar size="small" round color="#fa8c16">
+            <text style="color: #fff">张</text>
+          </w-avatar>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">图片头像 src</view>
+        <w-flex align="center">
+          <w-avatar size="large" src="https://picsum.photos/seed/a1/200"></w-avatar>
+          <w-avatar size="medium" round src="https://picsum.photos/seed/a2/200"></w-avatar>
+          <w-avatar size="small" src="https://picsum.photos/seed/a3/200"></w-avatar>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">图片降级 fallbackSrc</view>
+        <w-flex align="center">
+          <w-avatar
+            src="https://picsum.photos/seed/g4/200"
+            fallbackSrc="https://picsum.photos/seed/fallback/200"
+            round
+          ></w-avatar>
+          <w-avatar src="https://picsum.photos/seed/g5/200" round>
+            <text style="color: var(--color-text-secondary)">失</text>
+          </w-avatar>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">堆叠头像组 avatar-group</view>
+        <w-avatar-group>
+          <w-avatar bordered round color="#1677ff"><text style="color: #fff">A</text></w-avatar>
+          <w-avatar bordered round color="#52c41a"><text style="color: #fff">B</text></w-avatar>
+          <w-avatar bordered round color="#722ed1"><text style="color: #fff">C</text></w-avatar>
+          <w-avatar bordered round color="#fa8c16"><text style="color: #fff">D</text></w-avatar>
+        </w-avatar-group>
+      </view>
+
+      <view class="section">
+        <view class="section__title">头像组统一尺寸和形状</view>
+        <w-avatar-group size="large" round>
+          <w-avatar bordered src="https://picsum.photos/seed/g1/200"></w-avatar>
+          <w-avatar bordered src="https://picsum.photos/seed/g2/200"></w-avatar>
+          <w-avatar bordered src="https://picsum.photos/seed/g3/200"></w-avatar>
+        </w-avatar-group>
+      </view>
+    </view>
+  </scroll-view>
+</div>

@@ -1,0 +1,194 @@
+<div class="demo-page">
+  <scroll-view scroll-y enhanced="{{true}}" show-scrollbar="{{false}}" class="demo-scroll">
+    <view class="demo-content">
+      <view class="comp-header">
+        <view class="comp-header__tag">tooltip</view>
+        <view class="comp-header__desc">文字提示气泡，用于展示简短的辅助信息。</view>
+      </view>
+
+      <!-- Props -->
+      <view class="section">
+        <view class="section__title">Props</view>
+        <view class="prop-row" wx:for="{{props}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <!-- 基础用法 -->
+      <view class="section">
+        <view class="section__title">基础用法</view>
+        <view class="demo-tooltip-row">
+          <w-tooltip content="这是提示文字" data-key="showBasic">
+            <w-button slot="trigger" size="small">点击提示</w-button>
+          </w-tooltip>
+        </view>
+      </view>
+
+      <!-- 12 方向 -->
+      <view class="section">
+        <view class="section__title">placement 方向</view>
+
+        <view class="demo-hint">Top</view>
+        <view class="demo-tooltip-row">
+          <w-tooltip
+            content="top-start"
+            show="{{showTopStart}}"
+            placement="top-start"
+            data-key="showTopStart"
+            bind:update:show="onToggle"
+          >
+            <w-button slot="trigger" size="small">top-start</w-button>
+          </w-tooltip>
+          <w-tooltip
+            content="top"
+            show="{{showTop}}"
+            placement="top"
+            data-key="showTop"
+            bind:update:show="onToggle"
+          >
+            <w-button slot="trigger" size="small">top</w-button>
+          </w-tooltip>
+          <w-tooltip
+            content="top-end"
+            show="{{showTopEnd}}"
+            placement="top-end"
+            data-key="showTopEnd"
+            bind:update:show="onToggle"
+          >
+            <w-button slot="trigger" size="small">top-end</w-button>
+          </w-tooltip>
+        </view>
+
+        <view class="demo-hint">Bottom</view>
+        <view class="demo-tooltip-row">
+          <w-tooltip
+            content="bottom-start"
+            show="{{showBottomStart}}"
+            placement="bottom-start"
+            data-key="showBottomStart"
+            bind:update:show="onToggle"
+          >
+            <w-button slot="trigger" size="small">bottom-start</w-button>
+          </w-tooltip>
+          <w-tooltip
+            content="bottom"
+            show="{{showBottom}}"
+            placement="bottom"
+            data-key="showBottom"
+            bind:update:show="onToggle"
+          >
+            <w-button slot="trigger" size="small">bottom</w-button>
+          </w-tooltip>
+          <w-tooltip
+            content="bottom-end"
+            show="{{showBottomEnd}}"
+            placement="bottom-end"
+            data-key="showBottomEnd"
+            bind:update:show="onToggle"
+          >
+            <w-button slot="trigger" size="small">bottom-end</w-button>
+          </w-tooltip>
+        </view>
+
+        <view class="demo-hint">Left</view>
+        <view class="demo-tooltip-row">
+          <w-tooltip
+            content="left-start"
+            show="{{showLeftStart}}"
+            placement="left-start"
+            data-key="showLeftStart"
+            bind:update:show="onToggle"
+          >
+            <w-button slot="trigger" size="small">left-start</w-button>
+          </w-tooltip>
+          <w-tooltip
+            content="left"
+            show="{{showLeft}}"
+            placement="left"
+            data-key="showLeft"
+            bind:update:show="onToggle"
+          >
+            <w-button slot="trigger" size="small">left</w-button>
+          </w-tooltip>
+          <w-tooltip
+            content="left-end"
+            show="{{showLeftEnd}}"
+            placement="left-end"
+            data-key="showLeftEnd"
+            bind:update:show="onToggle"
+          >
+            <w-button slot="trigger" size="small">left-end</w-button>
+          </w-tooltip>
+        </view>
+
+        <view class="demo-hint">Right</view>
+        <view class="demo-tooltip-row">
+          <w-tooltip
+            content="right-start"
+            show="{{showRightStart}}"
+            placement="right-start"
+            data-key="showRightStart"
+            bind:update:show="onToggle"
+          >
+            <w-button slot="trigger" size="small">right-start</w-button>
+          </w-tooltip>
+          <w-tooltip
+            content="right"
+            show="{{showRight}}"
+            placement="right"
+            data-key="showRight"
+            bind:update:show="onToggle"
+          >
+            <w-button slot="trigger" size="small">right</w-button>
+          </w-tooltip>
+          <w-tooltip
+            content="right-end"
+            show="{{showRightEnd}}"
+            placement="right-end"
+            data-key="showRightEnd"
+            bind:update:show="onToggle"
+          >
+            <w-button slot="trigger" size="small">right-end</w-button>
+          </w-tooltip>
+        </view>
+      </view>
+
+      <!-- 无箭头 -->
+      <view class="section">
+        <view class="section__title">隐藏箭头</view>
+        <view class="demo-tooltip-row">
+          <w-tooltip
+            content="没有箭头"
+            show="{{showNoArrow}}"
+            showArrow="{{false}}"
+            data-key="showNoArrow"
+            bind:update:show="onToggle"
+          >
+            <w-button slot="trigger" size="small">无箭头</w-button>
+          </w-tooltip>
+        </view>
+      </view>
+
+      <!-- 禁用 -->
+      <view class="section">
+        <view class="section__title">禁用</view>
+        <view class="demo-tooltip-row">
+          <w-tooltip
+            content="不会显示"
+            show="{{showDisabled}}"
+            disabled="{{true}}"
+            data-key="showDisabled"
+            bind:update:show="onToggle"
+          >
+            <w-button slot="trigger" size="small">禁用状态</w-button>
+          </w-tooltip>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</div>

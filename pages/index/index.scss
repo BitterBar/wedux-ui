@@ -1,0 +1,66 @@
+.demo-header {
+  padding: var(--spacing-lg) var(--spacing-md);
+  background: var(--color-bg-elevated);
+  border-bottom: 1rpx solid var(--color-separator);
+}
+
+.demo-header__title {
+  font-size: var(--font-size-h3);
+  color: var(--color-text-primary);
+  font-weight: 500;
+  margin-bottom: var(--spacing-xs);
+}
+
+.demo-header__desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.catalog-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.catalog-group__label {
+  font-size: var(--font-size-md);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  padding: 0 var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.catalog-card {
+  background: var(--color-bg-elevated);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+
+.catalog-card:active {
+  box-shadow: var(--shadow-card-hover);
+}
+
+.catalog-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md);
+  font-size: var(--font-size-md);
+  color: var(--color-text-primary);
+}
+
+.catalog-item + .catalog-item {
+  border-top: 1rpx solid var(--color-separator);
+}
+
+.catalog-item--active {
+  background: var(--color-bg-page);
+}
+
+.catalog-item__name {
+  flex: 1;
+}
+
+.catalog-item__arrow {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-lg);
+}

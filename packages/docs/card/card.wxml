@@ -1,0 +1,137 @@
+<div class="demo-page">
+  <scroll-view scroll-y enhanced="{{true}}" show-scrollbar="{{false}}" class="demo-scroll">
+    <view class="demo-content">
+      <view class="comp-header">
+        <view class="comp-header__tag">card</view>
+        <view class="comp-header__desc">卡片容器，支持封面、标题、内容、页脚和操作区域。</view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">Props</view>
+        <view class="prop-row" wx:for="{{props}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">基础卡片</view>
+        <w-card title="卡片标题">
+          <text>这是卡片的主体内容区域，用于展示文字、图片等任意内容。</text>
+        </w-card>
+      </view>
+
+      <view class="section">
+        <view class="section__title">标题 + 额外操作</view>
+        <w-card title="最新动态">
+          <view slot="header-extra">
+            <w-button type="primary" text size="small">更多</w-button>
+          </view>
+          <text>在头部右侧通过 header-extra 插槽放置辅助操作或标签。</text>
+        </w-card>
+      </view>
+
+      <view class="section">
+        <view class="section__title">封面图 cover</view>
+        <w-card title="城市风光">
+          <image
+            slot="cover"
+            src="https://picsum.photos/seed/card1/800/400"
+            mode="widthFix"
+            style="width: 100%"
+          ></image>
+          <text>通过 cover 插槽在卡片顶部放置封面图片，图片宽度自适应卡片宽度。</text>
+        </w-card>
+      </view>
+
+      <view class="section">
+        <view class="section__title">页脚 footer</view>
+        <w-card title="待办事项">
+          <text>今天需要完成的三件事情，保持专注，逐一完成。</text>
+          <view
+            slot="footer"
+            style="color: var(--color-text-secondary); font-size: var(--font-size-sm)"
+          >
+            <text>2026-03-09 · 3 项待完成</text>
+          </view>
+        </w-card>
+      </view>
+
+      <view class="section">
+        <view class="section__title">操作区 action</view>
+        <w-card title="草稿">
+          <text>这是一篇未发布的草稿，可以继续编辑或直接发布。</text>
+          <view slot="action" class="demo-card__actions">
+            <w-button size="small" type="default">取消</w-button>
+            <w-button size="small" type="primary" style="margin-left: var(--spacing-sm)">
+              发布
+            </w-button>
+          </view>
+        </w-card>
+      </view>
+
+      <view class="section">
+        <view class="section__title">分隔线 segmented</view>
+        <w-card title="分区卡片" segmented>
+          <text>segmented 属性为各区块之间添加分隔线，视觉层次更清晰。</text>
+          <view
+            slot="footer"
+            style="color: var(--color-text-secondary); font-size: var(--font-size-sm)"
+          >
+            <text>页脚补充信息</text>
+          </view>
+          <view slot="action">
+            <w-button size="small" type="primary">确认</w-button>
+          </view>
+        </w-card>
+      </view>
+
+      <view class="section">
+        <view class="section__title">无边框</view>
+        <w-card title="无边框卡片" bordered="{{false}}">
+          <text>设置 bordered=false 隐藏边框，适合在深色或有背景色的容器中使用。</text>
+        </w-card>
+      </view>
+
+      <view class="section">
+        <view class="section__title">按下效果 hoverable</view>
+        <w-card title="可交互卡片" hoverable>
+          <text>设置 hoverable 后，按下卡片会出现阴影效果，适合可点击的卡片场景。</text>
+        </w-card>
+      </view>
+
+      <view class="section">
+        <view class="section__title">点击事件</view>
+        <w-card title="可点击卡片" hoverable bindtap="onCardTap">
+          <text>点击整个卡片可以触发 tap 事件。</text>
+        </w-card>
+      </view>
+
+      <view class="section">
+        <view class="section__title">尺寸 size</view>
+        <w-flex vertical size="medium">
+          <w-card title="小尺寸 small" size="small">
+            <text>内距较小，适合紧凑布局。</text>
+          </w-card>
+          <w-card title="中尺寸 medium（默认）" size="medium">
+            <text>默认内距，适用于大多数场景。</text>
+          </w-card>
+          <w-card title="大尺寸 large" size="large">
+            <text>内距较大，适合内容较少的展示场景。</text>
+          </w-card>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">纯内容卡片（无标题）</view>
+        <w-card>
+          <text>不设置 title 时，卡片只显示内容区域，适合简洁的信息展示。</text>
+        </w-card>
+      </view>
+    </view>
+  </scroll-view>
+</div>

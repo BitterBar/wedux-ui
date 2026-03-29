@@ -1,0 +1,109 @@
+<div class="demo-page">
+  <scroll-view scroll-y enhanced="{{true}}" show-scrollbar="{{false}}" class="demo-scroll">
+    <view class="demo-content">
+      <view class="comp-header">
+        <view class="comp-header__tag">select</view>
+        <view class="comp-header__desc">选择器，支持单选（滚轮）和多选（列表勾选）。</view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">Props</view>
+        <view class="prop-row" wx:for="{{props}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <!-- Basic -->
+      <view class="section">
+        <view class="section__title">基础</view>
+        <w-select
+          value="{{val1}}"
+          options="{{cityOptions}}"
+          clearable
+          title="选择城市"
+          bind:update:value="onChange1"
+        />
+        <text class="demo-hint">值: {{val1 || '(空)'}}</text>
+      </view>
+
+      <!-- More options -->
+      <view class="section">
+        <view class="section__title">长列表</view>
+        <w-select
+          value="{{val2}}"
+          options="{{langOptions}}"
+          clearable
+          placeholder="选择编程语言"
+          title="选择语言"
+          bind:update:value="onChange2"
+        />
+      </view>
+
+      <!-- Multiple -->
+      <view class="section">
+        <view class="section__title">多选</view>
+        <w-select
+          value="{{multiVal1}}"
+          options="{{cityOptions}}"
+          multiple
+          clearable
+          title="选择城市"
+          placeholder="多选城市"
+          bind:update:value="onMultiChange1"
+        />
+        <text class="demo-hint">值: {{multiVal1.length ? multiVal1 : '(空)'}}</text>
+      </view>
+
+      <!-- Multiple with maxCount -->
+      <view class="section">
+        <view class="section__title">多选（最多3项）</view>
+        <w-select
+          value="{{multiVal2}}"
+          options="{{langOptions}}"
+          multiple
+          max-count="{{3}}"
+          clearable
+          placeholder="最多选3种语言"
+          title="选择语言"
+          bind:update:value="onMultiChange2"
+        />
+      </view>
+
+      <!-- Sizes -->
+      <view class="section">
+        <view class="section__title">尺寸</view>
+        <w-flex vertical size="small">
+          <w-select options="{{cityOptions}}" placeholder="默认" />
+          <w-select options="{{cityOptions}}" placeholder="medium" size="medium" />
+          <w-select options="{{cityOptions}}" placeholder="small" size="small" />
+        </w-flex>
+      </view>
+
+      <!-- Disabled -->
+      <view class="section">
+        <view class="section__title">禁用</view>
+        <w-select options="{{cityOptions}}" disabled placeholder="禁用状态" />
+      </view>
+
+      <!-- Readonly -->
+      <view class="section">
+        <view class="section__title">只读</view>
+        <w-select value="beijing" options="{{cityOptions}}" readonly />
+      </view>
+
+      <!-- Status -->
+      <view class="section">
+        <view class="section__title">状态</view>
+        <w-flex vertical size="small">
+          <w-select options="{{cityOptions}}" placeholder="error" status="error" />
+          <w-select options="{{cityOptions}}" placeholder="warning" status="warning" />
+        </w-flex>
+      </view>
+    </view>
+  </scroll-view>
+</div>

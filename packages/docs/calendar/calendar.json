@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "w-calendar": "/src/components/calendar/calendar"
+  },
+  "navigationBarTitleText": "Calendar",
+  "disableScroll": true
+}

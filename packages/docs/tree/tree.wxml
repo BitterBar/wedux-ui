@@ -1,0 +1,95 @@
+<view class="demo-page">
+  <scroll-view scroll-y enhanced="{{true}}" show-scrollbar="{{false}}" class="demo-scroll">
+    <view class="demo-content">
+      <view class="comp-header">
+        <view class="comp-header__tag">tree</view>
+        <view class="comp-header__desc">
+          树形控件，支持展开/收起、单选、多选勾选、搜索过滤、异步加载。
+        </view>
+      </view>
+
+      <!-- Props -->
+      <view class="section">
+        <view class="section__title">Props</view>
+        <view class="prop-row" wx:for="{{props}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <!-- 基础用法 -->
+      <view class="section">
+        <view class="section__title">基础</view>
+        <w-tree data="{{treeData}}" default-expand-all bind:update:selected-keys="onSelectChange" />
+        <text class="demo-hint">选中: {{selectedKeys || '(空)'}}</text>
+      </view>
+
+      <!-- 多选勾选 -->
+      <view class="section">
+        <view class="section__title">多选勾选 (cascade)</view>
+        <w-tree
+          data="{{treeData}}"
+          checkable
+          cascade
+          default-expand-all
+          bind:update:checked-keys="onCheckChange"
+        />
+        <text class="demo-hint">勾选: {{checkedKeys}}</text>
+      </view>
+
+      <!-- 手风琴 -->
+      <view class="section">
+        <view class="section__title">手风琴模式</view>
+        <w-tree data="{{treeData}}" accordion expand-on-click />
+      </view>
+
+      <!-- 搜索过滤 -->
+      <view class="section">
+        <view class="section__title">搜索过滤</view>
+        <w-input
+          value="{{searchPattern}}"
+          placeholder="输入关键词搜索"
+          bind:update:value="onSearchInput"
+        />
+        <w-tree
+          data="{{treeData}}"
+          pattern="{{searchPattern}}"
+          filter-mode="filter"
+          default-expand-all
+        />
+      </view>
+
+      <!-- 搜索高亮 -->
+      <view class="section">
+        <view class="section__title">搜索高亮</view>
+        <w-input
+          value="{{searchPattern}}"
+          placeholder="输入关键词高亮"
+          bind:update:value="onSearchInput"
+        />
+        <w-tree
+          data="{{treeData}}"
+          pattern="{{searchPattern}}"
+          filter-mode="highlight"
+          default-expand-all
+        />
+      </view>
+
+      <!-- 异步加载 -->
+      <view class="section">
+        <view class="section__title">异步加载</view>
+        <w-tree id="asyncTree" data="{{asyncData}}" expand-on-click bind:load="onAsyncLoad" />
+      </view>
+
+      <!-- 禁用 -->
+      <view class="section">
+        <view class="section__title">禁用</view>
+        <w-tree data="{{treeData}}" disabled default-expand-all />
+      </view>
+    </view>
+  </scroll-view>
+</view>

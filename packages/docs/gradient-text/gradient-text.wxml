@@ -1,0 +1,81 @@
+<div class="demo-page">
+  <scroll-view scroll-y enhanced="{{true}}" show-scrollbar="{{false}}" class="demo-scroll">
+    <view class="demo-content">
+      <view class="comp-header">
+        <view class="comp-header__tag">gradient-text</view>
+        <view class="comp-header__desc">渐变文字，用于突出展示关键信息。</view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">Props</view>
+        <view class="prop-row" wx:for="{{props}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">语义类型</view>
+        <view class="demo-row">
+          <w-gradient-text type="primary" size="xl">Primary 渐变文字</w-gradient-text>
+        </view>
+        <view class="demo-row">
+          <w-gradient-text type="info" size="xl">Info 渐变文字</w-gradient-text>
+        </view>
+        <view class="demo-row">
+          <w-gradient-text type="success" size="xl">Success 渐变文字</w-gradient-text>
+        </view>
+        <view class="demo-row">
+          <w-gradient-text type="warning" size="xl">Warning 渐变文字</w-gradient-text>
+        </view>
+        <view class="demo-row">
+          <w-gradient-text type="error" size="xl">Error 渐变文字</w-gradient-text>
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">字号大小</view>
+        <view class="demo-row">
+          <w-gradient-text size="sm">Small 小号</w-gradient-text>
+        </view>
+        <view class="demo-row">
+          <w-gradient-text size="md">Medium 中号</w-gradient-text>
+        </view>
+        <view class="demo-row">
+          <w-gradient-text size="lg">Large 大号</w-gradient-text>
+        </view>
+        <view class="demo-row">
+          <w-gradient-text size="xl">XLarge 超大</w-gradient-text>
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">自定义渐变</view>
+        <view class="demo-row">
+          <w-gradient-text gradient="linear-gradient(90deg, #f5af19, #f12711)" size="xl">
+            日落渐变
+          </w-gradient-text>
+        </view>
+        <view class="demo-row">
+          <w-gradient-text gradient="linear-gradient(90deg, #667eea, #764ba2)" size="xl">
+            紫罗兰渐变
+          </w-gradient-text>
+        </view>
+        <view class="demo-row">
+          <w-gradient-text gradient="linear-gradient(90deg, #f093fb, #f5576c)" size="xl">
+            粉红渐变
+          </w-gradient-text>
+        </view>
+        <view class="demo-row">
+          <w-gradient-text gradient="linear-gradient(90deg, #4facfe, #00f2fe)" size="xl">
+            天空渐变
+          </w-gradient-text>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</div>

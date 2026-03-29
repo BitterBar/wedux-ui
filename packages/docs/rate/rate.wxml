@@ -1,0 +1,68 @@
+<div class="demo-page">
+  <scroll-view scroll-y enhanced="{{true}}" show-scrollbar="{{false}}" class="demo-scroll">
+    <view class="demo-content">
+      <view class="comp-header">
+        <view class="comp-header__tag">rate</view>
+        <view class="comp-header__desc">评分组件，用于对事物进行评级操作。</view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">Props</view>
+        <view class="prop-row" wx:for="{{props}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">基础</view>
+        <w-rate value="{{val1}}" bind:update:value="onChange1" />
+        <view class="demo-hint">当前选中：{{val1}}</view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">半星</view>
+        <w-rate value="{{val2}}" allowHalf bind:update:value="onChange2" />
+        <view class="demo-hint">当前选中：{{val2}}</view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">自定义颜色</view>
+        <w-rate value="{{val3}}" color="#fa5151" bind:update:value="onChange3" />
+      </view>
+
+      <view class="section">
+        <view class="section__title">可清除</view>
+        <w-rate value="{{val4}}" clearable bind:update:value="onChange4" />
+        <view class="demo-hint">再次点击已选星星可清除，当前选中：{{val4 || '空'}}</view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">尺寸</view>
+        <w-flex direction="column" size="small">
+          <w-rate value="{{val5}}" bind:update:value="onChange5" />
+          <w-rate value="{{val5}}" size="small" bind:update:value="onChange5" />
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">自定义数量</view>
+        <w-rate value="{{val6}}" count="{{10}}" bind:update:value="onChange6" />
+      </view>
+
+      <view class="section">
+        <view class="section__title">只读</view>
+        <w-rate value="{{3.5}}" allowHalf readonly />
+      </view>
+
+      <view class="section">
+        <view class="section__title">禁用</view>
+        <w-rate value="{{2}}" disabled />
+      </view>
+    </view>
+  </scroll-view>
+</div>

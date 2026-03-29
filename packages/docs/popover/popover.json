@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "w-popover": "/src/components/popover/popover",
+    "w-button": "/src/components/button/button"
+  },
+  "navigationBarTitleText": "Popover",
+  "disableScroll": true
+}

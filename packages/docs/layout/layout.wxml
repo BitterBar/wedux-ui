@@ -1,0 +1,130 @@
+<view class="demo-page">
+  <scroll-view scroll-y enhanced="{{true}}" show-scrollbar="{{false}}" class="demo-scroll">
+    <view class="demo-content">
+      <view class="comp-header">
+        <view class="comp-header__tag">layout</view>
+        <view class="comp-header__desc">
+          布局组件，提供 Header + Content + Footer 的垂直布局和含 Sider 的水平布局。
+        </view>
+      </view>
+
+      <!-- w-layout Props -->
+      <view class="section">
+        <view class="section__title">w-layout Props</view>
+        <view class="prop-row" wx:for="{{layoutProps}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <!-- w-layout-header Props -->
+      <view class="section">
+        <view class="section__title">w-layout-header Props</view>
+        <view class="prop-row" wx:for="{{headerProps}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <!-- w-layout-content Props -->
+      <view class="section">
+        <view class="section__title">w-layout-content Props</view>
+        <view class="prop-row" wx:for="{{contentProps}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <!-- w-layout-footer Props -->
+      <view class="section">
+        <view class="section__title">w-layout-footer Props</view>
+        <view class="prop-row" wx:for="{{footerProps}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <!-- w-layout-sider Props -->
+      <view class="section">
+        <view class="section__title">w-layout-sider Props</view>
+        <view class="prop-row" wx:for="{{siderProps}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <!-- 基础垂直布局 -->
+      <view class="section">
+        <view class="section__title">基础垂直布局</view>
+        <view class="demo-layout-box">
+          <w-layout>
+            <w-layout-header position="static" bordered>
+              <view class="demo-header">Header</view>
+            </w-layout-header>
+            <w-layout-content>
+              <view class="demo-block" wx:for="{{6}}" wx:key="*this">
+                Content Block {{index + 1}}
+              </view>
+            </w-layout-content>
+            <w-layout-footer position="static" bordered>
+              <view class="demo-footer">Footer</view>
+            </w-layout-footer>
+          </w-layout>
+        </view>
+      </view>
+
+      <!-- Sider 分类导航布局 -->
+      <view class="section">
+        <view class="section__title">Sider 分类导航</view>
+        <view class="demo-layout-box">
+          <w-layout>
+            <w-layout-header position="static" bordered>
+              <view class="demo-header">菜单</view>
+            </w-layout-header>
+            <w-layout-content scroll-y="{{false}}">
+              <w-layout has-sider>
+                <w-layout-sider width="{{150}}" bordered>
+                  <view
+                    wx:for="{{categories}}"
+                    wx:key="id"
+                    class="demo-category {{activeCategory === item.id ? 'demo-category--active' : ''}}"
+                    bindtap="onCategoryTap"
+                    data-id="{{item.id}}"
+                  >
+                    {{item.name}}
+                  </view>
+                </w-layout-sider>
+                <w-layout-content>
+                  <view class="demo-block" wx:for="{{8}}" wx:key="*this">商品 {{index + 1}}</view>
+                </w-layout-content>
+              </w-layout>
+            </w-layout-content>
+            <w-layout-footer position="static" bordered>
+              <view class="demo-footer">购物车</view>
+            </w-layout-footer>
+          </w-layout>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

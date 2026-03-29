@@ -1,0 +1,210 @@
+<wxs module="util">
+  module.exports = { formatTs: function(ts) { if (!ts) return '(空)'; var d = getDate(ts); return
+  d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(); }, formatRange: function(val) { if
+  (!val || typeof val !== 'object') return '(空)'; var s = getDate(val[0]); var e = getDate(val[1]);
+  return s.getFullYear() + '-' + (s.getMonth() + 1) + '-' + s.getDate() + ' ~ ' + e.getFullYear() +
+  '-' + (e.getMonth() + 1) + '-' + e.getDate(); } };
+</wxs>
+
+<div class="demo-page">
+  <scroll-view scroll-y enhanced="{{true}}" show-scrollbar="{{false}}" class="demo-scroll">
+    <view class="demo-content">
+      <view class="comp-header">
+        <view class="comp-header__tag">date-picker</view>
+        <view class="comp-header__desc">
+          日期选择器，支持日期、日期时间、月份、年份、范围、季度、周选择。
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">Props</view>
+        <view class="prop-row" wx:for="{{props}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <!-- Single types -->
+      <view class="section">
+        <view class="section__title">日期选择 (date)</view>
+        <w-date-picker value="{{val1}}" clearable bind:update:value="onChange1" />
+        <text class="demo-hint">值: {{util.formatTs(val1)}}</text>
+      </view>
+
+      <view class="section">
+        <view class="section__title">日期时间 (datetime)</view>
+        <w-date-picker value="{{val2}}" type="datetime" clearable bind:update:value="onChange2" />
+      </view>
+
+      <view class="section">
+        <view class="section__title">月份选择 (month)</view>
+        <w-date-picker
+          value="{{val3}}"
+          type="month"
+          placeholder="请选择月份"
+          clearable
+          bind:update:value="onChange3"
+        />
+      </view>
+
+      <view class="section">
+        <view class="section__title">年份选择 (year)</view>
+        <w-date-picker
+          value="{{val4}}"
+          type="year"
+          placeholder="请选择年份"
+          clearable
+          bind:update:value="onChange4"
+        />
+      </view>
+
+      <view class="section">
+        <view class="section__title">季度选择 (quarter)</view>
+        <w-date-picker
+          value="{{val5}}"
+          type="quarter"
+          placeholder="请选择季度"
+          clearable
+          bind:update:value="onChange5"
+        />
+      </view>
+
+      <view class="section">
+        <view class="section__title">周选择 (week)</view>
+        <w-date-picker
+          value="{{val6}}"
+          type="week"
+          placeholder="请选择周"
+          clearable
+          bind:update:value="onChange6"
+        />
+      </view>
+
+      <!-- Range types -->
+      <view class="section">
+        <view class="section__title">日期范围 (daterange)</view>
+        <w-date-picker
+          value="{{val7}}"
+          type="daterange"
+          placeholder="开始日期 ~ 结束日期"
+          clearable
+          bind:update:value="onChange7"
+        />
+      </view>
+
+      <view class="section">
+        <view class="section__title">日期时间范围 (datetimerange)</view>
+        <w-date-picker
+          value="{{val8}}"
+          type="datetimerange"
+          placeholder="开始时间 ~ 结束时间"
+          clearable
+          bind:update:value="onChange8"
+        />
+      </view>
+
+      <view class="section">
+        <view class="section__title">月份范围 (monthrange)</view>
+        <w-date-picker
+          value="{{val9}}"
+          type="monthrange"
+          placeholder="开始月份 ~ 结束月份"
+          clearable
+          bind:update:value="onChange9"
+        />
+      </view>
+
+      <view class="section">
+        <view class="section__title">年份范围 (yearrange)</view>
+        <w-date-picker
+          value="{{val10}}"
+          type="yearrange"
+          placeholder="开始年份 ~ 结束年份"
+          clearable
+          bind:update:value="onChange10"
+        />
+      </view>
+
+      <view class="section">
+        <view class="section__title">季度范围 (quarterrange)</view>
+        <w-date-picker
+          value="{{val11}}"
+          type="quarterrange"
+          placeholder="开始季度 ~ 结束季度"
+          clearable
+          bind:update:value="onChange11"
+        />
+      </view>
+
+      <!-- Format -->
+      <view class="section">
+        <view class="section__title">自定义格式 (format)</view>
+        <w-flex vertical size="small">
+          <w-date-picker
+            value="{{fmtVal1}}"
+            format="YYYY/MM/DD"
+            placeholder="YYYY/MM/DD"
+            clearable
+            bind:update:value="onFmt1"
+          />
+          <w-date-picker
+            value="{{fmtVal2}}"
+            type="datetime"
+            format="MM-DD HH:mm"
+            placeholder="MM-DD HH:mm"
+            clearable
+            bind:update:value="onFmt2"
+          />
+          <w-date-picker
+            value="{{fmtVal3}}"
+            type="month"
+            format="YYYY年MM月"
+            placeholder="YYYY年MM月"
+            clearable
+            bind:update:value="onFmt3"
+          />
+          <w-date-picker
+            value="{{fmtVal4}}"
+            type="daterange"
+            format="MM/DD"
+            placeholder="MM/DD ~ MM/DD"
+            clearable
+            bind:update:value="onFmt4"
+          />
+        </w-flex>
+      </view>
+
+      <!-- Variants -->
+      <view class="section">
+        <view class="section__title">尺寸</view>
+        <w-flex vertical size="small">
+          <w-date-picker placeholder="默认" />
+          <w-date-picker placeholder="medium" size="medium" />
+          <w-date-picker placeholder="small" size="small" />
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">禁用</view>
+        <w-date-picker disabled placeholder="禁用状态" />
+      </view>
+
+      <view class="section">
+        <view class="section__title">只读</view>
+        <w-date-picker value="{{readonlyVal}}" readonly />
+      </view>
+
+      <view class="section">
+        <view class="section__title">状态</view>
+        <w-flex vertical size="small">
+          <w-date-picker placeholder="error" status="error" />
+          <w-date-picker placeholder="warning" status="warning" />
+        </w-flex>
+      </view>
+    </view>
+  </scroll-view>
+</div>

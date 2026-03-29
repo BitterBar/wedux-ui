@@ -1,0 +1,98 @@
+<div class="demo-page">
+  <scroll-view scroll-y enhanced="{{true}}" show-scrollbar="{{false}}" class="demo-scroll">
+    <view class="demo-content">
+      <view class="comp-header">
+        <view class="comp-header__tag">qr-code</view>
+        <view class="comp-header__desc">
+          二维码组件，用于生成和展示 QR Code。支持自定义颜色、尺寸、纠错等级和中心图标叠加。
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">Props</view>
+        <view class="prop-row" wx:for="{{props}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">基础用法</view>
+        <view class="section__content" style="display: flex; justify-content: center">
+          <w-qr-code value="https://github.com/nicepkg/wxw-ui"></w-qr-code>
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">自定义颜色</view>
+        <view class="section__content" style="display: flex; justify-content: center; gap: 24rpx">
+          <w-qr-code value="https://github.com" color="#07c160" size="{{120}}"></w-qr-code>
+          <w-qr-code
+            value="https://github.com"
+            color="#1677ff"
+            background-color="#f0f5ff"
+            size="{{120}}"
+          ></w-qr-code>
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">纠错等级</view>
+        <view
+          class="section__content"
+          style="display: flex; justify-content: center; gap: 24rpx; flex-wrap: wrap"
+        >
+          <view style="text-align: center">
+            <w-qr-code
+              value="Error Correction Level"
+              error-correction-level="L"
+              size="{{100}}"
+            ></w-qr-code>
+            <view class="demo-label">L</view>
+          </view>
+          <view style="text-align: center">
+            <w-qr-code
+              value="Error Correction Level"
+              error-correction-level="M"
+              size="{{100}}"
+            ></w-qr-code>
+            <view class="demo-label">M</view>
+          </view>
+          <view style="text-align: center">
+            <w-qr-code
+              value="Error Correction Level"
+              error-correction-level="Q"
+              size="{{100}}"
+            ></w-qr-code>
+            <view class="demo-label">Q</view>
+          </view>
+          <view style="text-align: center">
+            <w-qr-code
+              value="Error Correction Level"
+              error-correction-level="H"
+              size="{{100}}"
+            ></w-qr-code>
+            <view class="demo-label">H</view>
+          </view>
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">图标叠加</view>
+        <view class="section__content" style="display: flex; justify-content: center">
+          <w-qr-code
+            value="https://github.com/nicepkg/wxw-ui"
+            icon-src="https://picsum.photos/80/80"
+            icon-size="{{36}}"
+            icon-border-radius="{{8}}"
+            size="{{180}}"
+          ></w-qr-code>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</div>

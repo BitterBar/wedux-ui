@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "w-number-animation": "/src/components/number-animation/number-animation",
+    "w-button": "/src/components/button/button"
+  },
+  "navigationBarTitleText": "Number Animation",
+  "disableScroll": true
+}

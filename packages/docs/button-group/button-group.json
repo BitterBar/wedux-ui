@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "w-button": "/src/components/button/button",
+    "w-button-group": "/src/components/button-group/button-group",
+    "w-flex": "/src/components/flex/flex"
+  },
+  "navigationBarTitleText": "Button Group",
+  "disableScroll": true
+}

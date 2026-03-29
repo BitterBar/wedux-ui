@@ -1,0 +1,54 @@
+<div class="demo-page">
+  <scroll-view scroll-y enhanced="{{true}}" show-scrollbar="{{false}}" class="demo-scroll">
+    <view class="demo-content">
+      <view class="comp-header">
+        <view class="comp-header__tag">calendar</view>
+        <view class="comp-header__desc">
+          内联展示型月视图日历组件，支持单选日期、日期标记、可配置周起始日。
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">Props</view>
+        <view class="prop-row" wx:for="{{props}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">基础</view>
+        <w-calendar
+          value="{{val1}}"
+          bind:update:value="onChange1"
+          bind:panel-change="onPanelChange"
+        />
+        <view class="demo-hint">选中：{{val1 || '无'}}</view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">默认选中 + 标记</view>
+        <w-calendar value="{{val2}}" marks="{{marks}}" bind:update:value="onChange2" />
+      </view>
+
+      <view class="section">
+        <view class="section__title">默认值（default-value）</view>
+        <w-calendar default-value="{{val2}}" />
+      </view>
+
+      <view class="section">
+        <view class="section__title">限制日期范围（当月）</view>
+        <w-calendar min-date="{{minDate}}" max-date="{{maxDate}}" />
+      </view>
+
+      <view class="section">
+        <view class="section__title">周日起始</view>
+        <w-calendar week-starts-on="{{0}}" />
+      </view>
+    </view>
+  </scroll-view>
+</div>

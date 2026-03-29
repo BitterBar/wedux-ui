@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "w-navigation-bar": "/src/components/navigation-bar/navigation-bar",
+    "w-layout": "/src/components/layout/layout",
+    "w-layout-header": "/src/components/layout-header/layout-header",
+    "w-layout-content": "/src/components/layout-content/layout-content",
+    "w-input": "/src/components/input/input"
+  },
+  "navigationStyle": "custom",
+  "disableScroll": true
+}

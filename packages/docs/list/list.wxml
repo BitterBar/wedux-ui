@@ -1,0 +1,120 @@
+<div class="demo-page">
+  <scroll-view scroll-y enhanced show-scrollbar="{{false}}" class="demo-scroll">
+    <view class="demo-content">
+      <view class="comp-header">
+        <view class="comp-header__tag">list</view>
+        <view class="comp-header__desc">以列表形式展示内容的基础容器。</view>
+      </view>
+
+      <!-- List Props -->
+      <view class="section">
+        <view class="section__title">List Props</view>
+        <view class="prop-row" wx:for="{{props}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <!-- ListItem Props -->
+      <view class="section">
+        <view class="section__title">ListItem Props</view>
+        <view class="prop-row" wx:for="{{itemProps}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <!-- 基础用法 -->
+      <view class="section">
+        <view class="section__title">基础用法</view>
+        <w-list>
+          <w-list-item>列表内容 1</w-list-item>
+          <w-list-item>列表内容 2</w-list-item>
+          <w-list-item>列表内容 3</w-list-item>
+        </w-list>
+      </view>
+
+      <!-- 带边框 -->
+      <view class="section">
+        <view class="section__title">bordered 边框</view>
+        <w-list bordered>
+          <w-list-item>列表内容 1</w-list-item>
+          <w-list-item>列表内容 2</w-list-item>
+          <w-list-item>列表内容 3</w-list-item>
+        </w-list>
+      </view>
+
+      <!-- Header & Footer -->
+      <view class="section">
+        <view class="section__title">Header & Footer</view>
+        <w-list bordered>
+          <view slot="header">列表标题</view>
+          <w-list-item>列表内容 1</w-list-item>
+          <w-list-item>列表内容 2</w-list-item>
+          <w-list-item>列表内容 3</w-list-item>
+          <view slot="footer">列表底部</view>
+        </w-list>
+      </view>
+
+      <!-- 无分割线 -->
+      <view class="section">
+        <view class="section__title">隐藏分割线</view>
+        <w-list bordered showDivider="{{false}}">
+          <w-list-item>无分割线 1</w-list-item>
+          <w-list-item>无分割线 2</w-list-item>
+          <w-list-item>无分割线 3</w-list-item>
+        </w-list>
+      </view>
+
+      <!-- Prefix & Suffix -->
+      <view class="section">
+        <view class="section__title">Prefix & Suffix</view>
+        <w-list bordered>
+          <w-list-item>
+            <w-avatar slot="prefix" src="https://picsum.photos/100?random=1" size="small" round />
+            <view>用户名称 A</view>
+            <w-tag slot="suffix" size="small" type="success">在线</w-tag>
+          </w-list-item>
+          <w-list-item>
+            <w-avatar slot="prefix" src="https://picsum.photos/100?random=2" size="small" round />
+            <view>用户名称 B</view>
+            <w-tag slot="suffix" size="small" type="default">离线</w-tag>
+          </w-list-item>
+          <w-list-item>
+            <w-avatar slot="prefix" src="https://picsum.photos/100?random=3" size="small" round />
+            <view>用户名称 C</view>
+            <w-tag slot="suffix" size="small" type="warning">忙碌</w-tag>
+          </w-list-item>
+        </w-list>
+      </view>
+
+      <!-- 尺寸 -->
+      <view class="section">
+        <view class="section__title">size 尺寸</view>
+        <view class="demo-hint">small</view>
+        <w-list bordered size="small">
+          <w-list-item>小尺寸 1</w-list-item>
+          <w-list-item>小尺寸 2</w-list-item>
+        </w-list>
+        <view class="demo-hint" style="margin-top: 24rpx">medium（默认）</view>
+        <w-list bordered size="medium">
+          <w-list-item>中尺寸 1</w-list-item>
+          <w-list-item>中尺寸 2</w-list-item>
+        </w-list>
+        <view class="demo-hint" style="margin-top: 24rpx">large</view>
+        <w-list bordered size="large">
+          <w-list-item>大尺寸 1</w-list-item>
+          <w-list-item>大尺寸 2</w-list-item>
+        </w-list>
+      </view>
+    </view>
+  </scroll-view>
+</div>

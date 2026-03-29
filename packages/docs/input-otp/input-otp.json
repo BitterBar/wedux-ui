@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "w-input-otp": "/src/components/input-otp/input-otp"
+  },
+  "navigationBarTitleText": "Input OTP",
+  "disableScroll": true
+}

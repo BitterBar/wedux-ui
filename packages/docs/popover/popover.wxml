@@ -1,0 +1,190 @@
+<div class="demo-page">
+  <scroll-view scroll-y enhanced="{{true}}" show-scrollbar="{{false}}" class="demo-scroll">
+    <view class="demo-content">
+      <view class="comp-header">
+        <view class="comp-header__tag">popover</view>
+        <view class="comp-header__desc">点击触发的弹出气泡。</view>
+      </view>
+
+      <!-- Props -->
+      <view class="section">
+        <view class="section__title">Props</view>
+        <view class="prop-row" wx:for="{{props}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <!-- 基础用法 -->
+      <view class="section">
+        <view class="section__title">基础用法</view>
+        <view class="demo-popover-row">
+          <w-popover placement="top" data-key="showBasic">
+            <w-button slot="trigger" size="small">点击弹出</w-button>
+            <view>这是弹出内容</view>
+          </w-popover>
+        </view>
+      </view>
+
+      <!-- 12 方向 -->
+      <view class="section">
+        <view class="section__title">placement 方向</view>
+
+        <view class="demo-hint">Top</view>
+        <view class="demo-popover-row">
+          <w-popover
+            show="{{showTopStart}}"
+            placement="top-start"
+            data-key="showTopStart"
+            bind:update:show="onToggle"
+          >
+            <w-button slot="trigger" size="small">top-start</w-button>
+            <view>top-start 内容</view>
+          </w-popover>
+          <w-popover
+            show="{{showTop}}"
+            placement="top"
+            data-key="showTop"
+            bind:update:show="onToggle"
+          >
+            <w-button slot="trigger" size="small">top</w-button>
+            <view>top 内容</view>
+          </w-popover>
+          <w-popover
+            show="{{showTopEnd}}"
+            placement="top-end"
+            data-key="showTopEnd"
+            bind:update:show="onToggle"
+          >
+            <w-button slot="trigger" size="small">top-end</w-button>
+            <view>top-end 内容</view>
+          </w-popover>
+        </view>
+
+        <view class="demo-hint">Bottom</view>
+        <view class="demo-popover-row">
+          <w-popover
+            show="{{showBottomStart}}"
+            placement="bottom-start"
+            data-key="showBottomStart"
+            bind:update:show="onToggle"
+          >
+            <w-button slot="trigger" size="small">bottom-start</w-button>
+            <view>bottom-start 内容</view>
+          </w-popover>
+          <w-popover
+            show="{{showBottom}}"
+            placement="bottom"
+            data-key="showBottom"
+            bind:update:show="onToggle"
+          >
+            <w-button slot="trigger" size="small">bottom</w-button>
+            <view>bottom 内容</view>
+          </w-popover>
+          <w-popover
+            show="{{showBottomEnd}}"
+            placement="bottom-end"
+            data-key="showBottomEnd"
+            bind:update:show="onToggle"
+          >
+            <w-button slot="trigger" size="small">bottom-end</w-button>
+            <view>bottom-end 内容</view>
+          </w-popover>
+        </view>
+
+        <view class="demo-hint">Left</view>
+        <view class="demo-popover-row">
+          <w-popover
+            show="{{showLeftStart}}"
+            placement="left-start"
+            data-key="showLeftStart"
+            bind:update:show="onToggle"
+          >
+            <w-button slot="trigger" size="small">left-start</w-button>
+            <view>left-start</view>
+          </w-popover>
+          <w-popover
+            show="{{showLeft}}"
+            placement="left"
+            data-key="showLeft"
+            bind:update:show="onToggle"
+          >
+            <w-button slot="trigger" size="small">left</w-button>
+            <view>left 内容</view>
+          </w-popover>
+          <w-popover
+            show="{{showLeftEnd}}"
+            placement="left-end"
+            data-key="showLeftEnd"
+            bind:update:show="onToggle"
+          >
+            <w-button slot="trigger" size="small">left-end</w-button>
+            <view>left-end</view>
+          </w-popover>
+        </view>
+
+        <view class="demo-hint">Right</view>
+        <view class="demo-popover-row">
+          <w-popover
+            show="{{showRightStart}}"
+            placement="right-start"
+            data-key="showRightStart"
+            bind:update:show="onToggle"
+          >
+            <w-button slot="trigger" size="small">right-start</w-button>
+            <view>right-start</view>
+          </w-popover>
+          <w-popover
+            show="{{showRight}}"
+            placement="right"
+            data-key="showRight"
+            bind:update:show="onToggle"
+          >
+            <w-button slot="trigger" size="small">right</w-button>
+            <view>right 内容</view>
+          </w-popover>
+          <w-popover
+            show="{{showRightEnd}}"
+            placement="right-end"
+            data-key="showRightEnd"
+            bind:update:show="onToggle"
+          >
+            <w-button slot="trigger" size="small">right-end</w-button>
+            <view>right-end</view>
+          </w-popover>
+        </view>
+      </view>
+
+      <!-- 无箭头 -->
+      <view class="section">
+        <view class="section__title">隐藏箭头</view>
+        <view class="demo-popover-row">
+          <w-popover
+            show="{{showNoArrow}}"
+            showArrow="{{false}}"
+            data-key="showNoArrow"
+            bind:update:show="onToggle"
+          >
+            <w-button slot="trigger" size="small">无箭头</w-button>
+            <view>没有箭头的弹出层</view>
+          </w-popover>
+        </view>
+      </view>
+
+      <!-- 手动触发 -->
+      <view class="section">
+        <view class="section__title">手动触发</view>
+        <view class="demo-popover-row">
+          <w-popover show="{{showManual}}" trigger="manual" placement="bottom">
+            <w-button slot="trigger" size="small" bind:tap="onToggleManual">手动控制</w-button>
+            <view>手动触发的内容</view>
+          </w-popover>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</div>

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "w-float-button": "/src/components/float-button/float-button"
+  },
+  "navigationBarTitleText": "Float Button",
+  "disableScroll": true
+}

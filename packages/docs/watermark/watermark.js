@@ -1,0 +1,28 @@
+Page({
+  data: {
+    props: [
+      { name: 'content', type: 'String', default: "''", desc: '水印文字内容，支持 \\n 换行' },
+      { name: 'image', type: 'String', default: "''", desc: '水印图片地址，优先级高于 content' },
+      { name: 'imageWidth', type: 'Number', default: '0', desc: '图片宽度（px），0 取原始尺寸' },
+      { name: 'imageHeight', type: 'Number', default: '0', desc: '图片高度（px），0 取原始尺寸' },
+      { name: 'imageOpacity', type: 'Number', default: '1', desc: '图片透明度' },
+      { name: 'fontSize', type: 'Number', default: '14', desc: '字号（px）' },
+      { name: 'fontColor', type: 'String', default: "'rgba(128,128,128,0.15)'", desc: '文字颜色' },
+      { name: 'fontWeight', type: 'String', default: "'normal'", desc: '文字粗细' },
+      { name: 'fontFamily', type: 'String', default: "'sans-serif'", desc: '字体' },
+      { name: 'width', type: 'Number', default: '120', desc: '单个水印宽度（px）' },
+      { name: 'height', type: 'Number', default: '64', desc: '单个水印高度（px）' },
+      { name: 'rotate', type: 'Number', default: '-22', desc: '旋转角度' },
+      { name: 'xGap', type: 'Number', default: '0', desc: '水平间距（px）' },
+      { name: 'yGap', type: 'Number', default: '0', desc: '垂直间距（px）' },
+      { name: 'xOffset', type: 'Number', default: '0', desc: '背景水平偏移（px）' },
+      { name: 'yOffset', type: 'Number', default: '0', desc: '背景垂直偏移（px）' },
+      { name: 'cross', type: 'Boolean', default: 'false', desc: '交叉排列水印' },
+      { name: 'fullscreen', type: 'Boolean', default: 'false', desc: '全屏水印（fixed 定位）' },
+      { name: 'zIndex', type: 'Number', default: '10', desc: '水印层级' },
+      { name: 'lineHeight', type: 'Number', default: '0', desc: '多行文字行高（px），0 为自动' },
+      { name: 'selectable', type: 'Boolean', default: 'true', desc: '水印下方内容是否可交互' },
+      { name: 'globalRotate', type: 'Number', default: '0', desc: '水印层整体旋转角度' },
+    ],
+  },
+});

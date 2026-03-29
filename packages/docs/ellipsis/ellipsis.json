@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "w-ellipsis": "/src/components/ellipsis/ellipsis"
+  },
+  "navigationBarTitleText": "Ellipsis",
+  "disableScroll": true
+}

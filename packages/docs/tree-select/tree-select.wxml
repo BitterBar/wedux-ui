@@ -1,0 +1,119 @@
+<view class="demo-page">
+  <scroll-view scroll-y enhanced="{{true}}" show-scrollbar="{{false}}" class="demo-scroll">
+    <view class="demo-content">
+      <view class="comp-header">
+        <view class="comp-header__tag">tree-select</view>
+        <view class="comp-header__desc">
+          树形选择器，支持单选、多选勾选、搜索过滤、半屏/全屏模式。
+        </view>
+      </view>
+
+      <!-- Props -->
+      <view class="section">
+        <view class="section__title">Props</view>
+        <view class="prop-row" wx:for="{{props}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <!-- 单选 -->
+      <view class="section">
+        <view class="section__title">单选</view>
+        <w-tree-select
+          value="{{val1}}"
+          data="{{deptData}}"
+          title="选择部门"
+          clearable
+          default-expand-all
+          bind:update:value="onChange1"
+        />
+        <text class="demo-hint">值: {{val1 || '(空)'}}</text>
+      </view>
+
+      <!-- 单选 显示路径 -->
+      <view class="section">
+        <view class="section__title">显示路径</view>
+        <w-tree-select
+          value="{{val5}}"
+          data="{{deptData}}"
+          title="选择人员"
+          show-path
+          clearable
+          default-expand-all
+          bind:update:value="onChange5"
+        />
+        <text class="demo-hint">值: {{val5 || '(空)'}}</text>
+      </view>
+
+      <!-- 多选勾选 -->
+      <view class="section">
+        <view class="section__title">多选勾选</view>
+        <w-tree-select
+          value="{{val2}}"
+          data="{{deptData}}"
+          title="选择成员"
+          multiple
+          checkable
+          clearable
+          default-expand-all
+          bind:update:value="onChange2"
+        />
+        <text class="demo-hint">值: {{val2}}</text>
+      </view>
+
+      <!-- 可搜索 -->
+      <view class="section">
+        <view class="section__title">可搜索</view>
+        <w-tree-select
+          value="{{val3}}"
+          data="{{deptData}}"
+          title="搜索选择"
+          filterable
+          clearable
+          default-expand-all
+          bind:update:value="onChange3"
+        />
+      </view>
+
+      <!-- 全屏模式 -->
+      <view class="section">
+        <view class="section__title">全屏模式</view>
+        <w-tree-select
+          value="{{val4}}"
+          data="{{deptData}}"
+          title="选择成员"
+          mode="full"
+          multiple
+          checkable
+          filterable
+          clearable
+          max-tag-count="{{2}}"
+          default-expand-all
+          bind:update:value="onChange4"
+        />
+        <text class="demo-hint">值: {{val4}}</text>
+      </view>
+
+      <!-- 禁用 -->
+      <view class="section">
+        <view class="section__title">禁用</view>
+        <w-tree-select data="{{deptData}}" placeholder="禁用状态" disabled />
+      </view>
+
+      <!-- 尺寸 -->
+      <view class="section">
+        <view class="section__title">尺寸</view>
+        <w-tree-select data="{{deptData}}" placeholder="large" size="large" />
+        <view style="height: 16rpx"></view>
+        <w-tree-select data="{{deptData}}" placeholder="medium (默认)" />
+        <view style="height: 16rpx"></view>
+        <w-tree-select data="{{deptData}}" placeholder="small" size="small" />
+      </view>
+    </view>
+  </scroll-view>
+</view>

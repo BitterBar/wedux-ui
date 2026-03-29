@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "w-h": "/src/components/h/h"
+  },
+  "navigationBarTitleText": "H 标题",
+  "disableScroll": true
+}

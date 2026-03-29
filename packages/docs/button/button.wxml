@@ -1,0 +1,270 @@
+<div class="demo-page">
+  <scroll-view scroll-y enhanced="{{true}}" show-scrollbar="{{false}}" class="demo-scroll">
+    <view class="demo-content">
+      <view class="comp-header">
+        <view class="comp-header__tag">button</view>
+        <view class="comp-header__desc">触发操作的基础按钮，支持多种类型、样式和状态。</view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">Props</view>
+        <view class="prop-row" wx:for="{{props}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">类型 type</view>
+        <w-flex wrap size="small">
+          <w-button type="default">Default</w-button>
+          <w-button type="tertiary">Tertiary</w-button>
+          <w-button type="primary">Primary</w-button>
+          <w-button type="success" block>Success</w-button>
+          <w-button type="info">Info</w-button>
+          <w-button type="warning">Warning</w-button>
+          <w-button type="error">Error</w-button>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">次要 secondary</view>
+        <w-flex wrap size="small">
+          <w-button type="default" secondary>Default</w-button>
+          <w-button type="tertiary" secondary>Tertiary</w-button>
+          <w-button type="primary" secondary>Primary</w-button>
+          <w-button type="success" secondary>Success</w-button>
+          <w-button type="info" secondary>Info</w-button>
+          <w-button type="warning" secondary>Warning</w-button>
+          <w-button type="error" secondary>Error</w-button>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">次次要 tertiary</view>
+        <w-flex wrap size="small">
+          <w-button type="default" tertiary>Default</w-button>
+          <w-button type="tertiary" tertiary>Tertiary</w-button>
+          <w-button type="primary" tertiary>Primary</w-button>
+          <w-button type="success" tertiary>Success</w-button>
+          <w-button type="info" tertiary>Info</w-button>
+          <w-button type="warning" tertiary>Warning</w-button>
+          <w-button type="error" tertiary>Error</w-button>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">次次次要 quaternary</view>
+        <w-flex wrap size="small">
+          <w-button type="default" quaternary>Default</w-button>
+          <w-button type="primary" quaternary>Primary</w-button>
+          <w-button type="success" quaternary>Success</w-button>
+          <w-button type="info" quaternary>Info</w-button>
+          <w-button type="warning" quaternary>Warning</w-button>
+          <w-button type="error" quaternary>Error</w-button>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">幽灵 ghost</view>
+        <w-flex wrap size="small">
+          <w-button type="default" ghost>Default</w-button>
+          <w-button type="primary" ghost>Primary</w-button>
+          <w-button type="success" ghost>Success</w-button>
+          <w-button type="info" ghost>Info</w-button>
+          <w-button type="warning" ghost>Warning</w-button>
+          <w-button type="error" ghost>Error</w-button>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">虚线 dashed</view>
+        <w-flex wrap size="small">
+          <w-button type="default" dashed>Default</w-button>
+          <w-button type="primary" dashed>Primary</w-button>
+          <w-button type="success" dashed>Success</w-button>
+          <w-button type="info" dashed>Info</w-button>
+          <w-button type="warning" dashed>Warning</w-button>
+          <w-button type="error" dashed>Error</w-button>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">尺寸 size</view>
+        <w-flex align="center" size="small">
+          <w-button type="primary" size="default">Default</w-button>
+          <w-button type="primary" size="medium">Medium</w-button>
+          <w-button type="primary" size="small">Small</w-button>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">圆角 round</view>
+        <w-flex wrap size="small">
+          <w-button type="primary" round>Primary</w-button>
+          <w-button type="default" round>Default</w-button>
+          <w-button type="primary" secondary round>Secondary</w-button>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">圆形 circle</view>
+        <w-flex align="center" size="small">
+          <w-button type="primary" circle size="default">A</w-button>
+          <w-button type="primary" circle size="medium">B</w-button>
+          <w-button type="primary" circle size="small">C</w-button>
+          <w-button type="default" circle>+</w-button>
+          <w-button type="error" secondary circle>!</w-button>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">块级 block</view>
+        <w-button type="primary" block>Block Button</w-button>
+      </view>
+
+      <view class="section">
+        <view class="section__title">加粗 strong</view>
+        <w-flex wrap size="small">
+          <w-button type="primary" strong>Strong</w-button>
+          <w-button type="default" strong>Strong</w-button>
+          <w-button type="primary" quaternary strong>Strong</w-button>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">纯文字 text</view>
+
+        <w-flex wrap size="small" align="center">
+          <span style="font-size: 28rpx">
+            <text>一些文字</text>
+            <w-button text type="primary">按钮</w-button>
+          </span>
+          <w-button type="default" text>Default</w-button>
+          <w-button type="primary" text>Primary</w-button>
+          <w-button type="success" text>Success</w-button>
+          <w-button type="info" text>Info</w-button>
+          <w-button type="warning" text>Warning</w-button>
+          <w-button type="error" text>Error</w-button>
+          <w-button type="primary" text size="default">Large</w-button>
+          <w-button type="primary" text size="medium">Medium</w-button>
+          <w-button type="primary" text size="small">Small</w-button>
+          <w-button type="primary" text strong>Strong</w-button>
+          <w-button type="primary" text disabled>Disabled</w-button>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">自定义颜色 color / text-color</view>
+        <w-flex wrap size="small">
+          <w-button color="#6366f1" text-color="#ffffff">自定义</w-button>
+          <w-button color="#f59e0b" text-color="#ffffff">暖色</w-button>
+          <w-button color="transparent" text-color="#6366f1" dashed>描边</w-button>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">禁用 disabled</view>
+        <w-flex wrap size="small">
+          <w-button type="primary" disabled>Primary</w-button>
+          <w-button type="default" disabled>Default</w-button>
+          <w-button type="primary" secondary disabled>Secondary</w-button>
+          <w-button type="primary" quaternary disabled>Text</w-button>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">加载中 loading</view>
+        <w-flex wrap size="small">
+          <w-button type="primary" loading>Primary</w-button>
+          <w-button type="default" loading>Default</w-button>
+          <w-button type="primary" secondary loading>Secondary</w-button>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">开放能力 openType</view>
+        <view class="demo-hint">需要真机验证，模拟器可能不支持部分能力</view>
+        <w-flex wrap size="small">
+          <w-button type="primary" openType="contact" bind:contact="handleContact">
+            客服会话
+          </w-button>
+          <w-button type="primary" openType="share">转发</w-button>
+          <w-button type="primary" openType="getPhoneNumber" bind:getphonenumber="getPhoneNumber">
+            快速验证手机号
+          </w-button>
+          <w-button
+            type="primary"
+            openType="getRealtimePhoneNumber"
+            bind:getrealtimephonenumber="getRealtimePhoneNumber"
+          >
+            实时验证手机号
+          </w-button>
+          <w-button type="primary" openType="getUserInfo" bind:getuserinfo="getUserInfo">
+            获取用户信息
+          </w-button>
+          <w-button type="primary" openType="chooseAvatar" bind:chooseavatar="chooseAvatar">
+            选择头像
+          </w-button>
+          <w-button
+            type="primary"
+            openType="launchApp"
+            app-parameter="wechat"
+            bind:error="handleLaunchAppError"
+          >
+            打开APP
+          </w-button>
+          <w-button type="primary" openType="openSetting" bind:opensetting="handleOpenSetting">
+            授权设置
+          </w-button>
+          <w-button type="primary" openType="feedback">意见反馈</w-button>
+          <w-button
+            type="primary"
+            openType="liveActivity"
+            bind:createliveactivity="handleLiveActivityCreate"
+          >
+            订阅消息
+          </w-button>
+          <w-button
+            type="primary"
+            openType="agreePrivacyAuthorization"
+            bind:agreeprivacyauthorization="handleAgreePrivacy"
+          >
+            同意隐私协议
+          </w-button>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">表单类型 formType</view>
+        <form
+          bind:submit="handleFormSubmit"
+          bind:reset="handleFormReset"
+          bind:submitToGroup="handleFormSubmitToGroup"
+        >
+          <w-flex vertical>
+            <textarea value="{{inputText}}" />
+            <w-flex wrap size="small" justify="flex-end">
+              <w-button-group>
+                <w-button type="default" formType="reset">重置表单</w-button>
+                <w-button
+                  type="default"
+                  form-type="submitToGroup"
+                  need-show-entrance="{{true}}"
+                  entrance-path=""
+                >
+                  转发文本到聊天
+                </w-button>
+                <w-button type="primary" formType="submit">提交表单</w-button>
+              </w-button-group>
+            </w-flex>
+          </w-flex>
+        </form>
+      </view>
+    </view>
+  </scroll-view>
+</div>

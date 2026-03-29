@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "w-upload": "/src/components/upload/upload"
+  },
+  "navigationBarTitleText": "Upload",
+  "disableScroll": true
+}
