@@ -134,10 +134,15 @@ async function main() {
 
   // publish
   step('\nPublishing...');
+  let otp;
+  if (!isDryRun) {
+    otp = await prompt('Enter OTP:');
+  }
   const publishArgs = [
     'publish',
     '--access',
     'public',
+    ...(otp ? ['--otp', otp] : []),
     ...(args.tag ? ['--tag', args.tag] : []),
     ...(args.registry ? ['--registry', args.registry] : []),
     ...(isDryRun ? ['--dry-run'] : []),
