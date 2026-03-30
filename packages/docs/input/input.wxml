@@ -1,0 +1,144 @@
+<div class="demo-page">
+  <scroll-view scroll-y enhanced="{{true}}" show-scrollbar="{{false}}" class="demo-scroll">
+    <view class="demo-content">
+      <view class="comp-header">
+        <view class="comp-header__tag">input / textarea</view>
+        <view class="comp-header__desc">文本输入组件，支持多种类型、可清除、字数统计等。</view>
+      </view>
+
+      <!-- Input Props -->
+      <view class="section">
+        <view class="section__title">Input Props</view>
+        <view class="prop-row" wx:for="{{inputProps}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <!-- Basic -->
+      <view class="section">
+        <view class="section__title">基础</view>
+        <w-input value="{{inputVal}}" placeholder="请输入内容" bind:update:value="onInputChange" />
+      </view>
+
+      <!-- Number -->
+      <view class="section">
+        <view class="section__title">数字</view>
+        <w-input
+          value="{{numberVal}}"
+          type="number"
+          placeholder="请输入内容"
+          bind:update:value="onInputNumberChange"
+        />
+      </view>
+
+      <!-- Clearable -->
+      <view class="section">
+        <view class="section__title">可清除</view>
+        <w-input
+          value="{{clearVal}}"
+          clearable
+          placeholder="可清除"
+          bind:update:value="onClearChange"
+        />
+      </view>
+
+      <!-- Password -->
+      <view class="section">
+        <view class="section__title">密码</view>
+        <w-input
+          value="{{pwdVal}}"
+          password
+          placeholder="请输入密码"
+          bind:update:value="onPwdChange"
+        />
+      </view>
+
+      <!-- Word Limit -->
+      <view class="section">
+        <view class="section__title">字数统计</view>
+        <w-input
+          value="{{limitVal}}"
+          maxlength="{{20}}"
+          showWordLimit
+          placeholder="最多 20 字"
+          bind:update:value="onLimitChange"
+        />
+      </view>
+
+      <!-- Size -->
+      <view class="section">
+        <view class="section__title">尺寸</view>
+        <w-input placeholder="默认" />
+        <w-input placeholder="medium" size="medium" />
+        <w-input placeholder="small" size="small" />
+      </view>
+
+      <!-- Status -->
+      <view class="section">
+        <view class="section__title">状态</view>
+        <w-input placeholder="error" status="error" />
+        <w-input placeholder="warning" status="warning" />
+        <w-input placeholder="disabled" disabled />
+        <w-input placeholder="readonly" readonly value="只读内容" />
+      </view>
+
+      <!-- Round -->
+      <view class="section">
+        <view class="section__title">圆角</view>
+        <w-input round placeholder="圆角输入框" />
+      </view>
+
+      <!-- Textarea Props -->
+      <view class="section">
+        <view class="section__title">Textarea Props</view>
+        <view class="prop-row" wx:for="{{textareaProps}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <!-- Textarea Basic -->
+      <view class="section">
+        <view class="section__title">Textarea</view>
+        <w-textarea
+          value="{{textareaVal}}"
+          placeholder="请输入内容"
+          bind:update:value="onTextareaChange"
+        />
+      </view>
+
+      <!-- Auto Height -->
+      <view class="section">
+        <view class="section__title">自适应高度</view>
+        <w-textarea
+          value="{{autoVal}}"
+          autoHeight
+          placeholder="自适应高度"
+          bind:update:value="onAutoChange"
+        />
+      </view>
+
+      <!-- Textarea with Word Limit -->
+      <view class="section">
+        <view class="section__title">字数统计</view>
+        <w-textarea maxlength="{{100}}" showWordLimit placeholder="最多 100 字" />
+      </view>
+
+      <!-- Textarea Status -->
+      <view class="section">
+        <view class="section__title">状态</view>
+        <w-textarea placeholder="error" status="error" />
+        <w-textarea placeholder="disabled" disabled />
+      </view>
+    </view>
+  </scroll-view>
+</div>

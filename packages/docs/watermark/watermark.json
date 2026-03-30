@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "w-watermark": "/src/components/watermark/watermark"
+  },
+  "navigationBarTitleText": "Watermark",
+  "disableScroll": true
+}

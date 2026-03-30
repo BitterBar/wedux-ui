@@ -1,0 +1,135 @@
+<div class="demo-page">
+  <scroll-view scroll-y enhanced="{{true}}" show-scrollbar="{{false}}" class="demo-scroll">
+    <view class="demo-content">
+      <view class="comp-header">
+        <view class="comp-header__tag">badge</view>
+        <view class="comp-header__desc">徽标，用于显示通知数量或状态标记。</view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">Props</view>
+        <view class="prop-row" wx:for="{{props}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">基础用法</view>
+        <w-flex size="large">
+          <w-badge value="{{5}}">
+            <w-avatar src="https://picsum.photos/200"></w-avatar>
+          </w-badge>
+          <w-badge value="{{99}}">
+            <w-avatar src="https://picsum.photos/201"></w-avatar>
+          </w-badge>
+          <w-badge value="new" processing>
+            <w-avatar src="https://picsum.photos/202"></w-avatar>
+          </w-badge>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">最大值</view>
+        <w-flex size="large">
+          <w-badge value="{{100}}" max="{{99}}" processing>
+            <w-avatar src="https://picsum.photos/203"></w-avatar>
+          </w-badge>
+          <w-badge value="{{1000}}" max="{{999}}">
+            <w-avatar src="https://picsum.photos/204"></w-avatar>
+          </w-badge>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">圆点模式</view>
+        <w-flex size="large">
+          <w-badge dot>
+            <w-avatar src="https://picsum.photos/205"></w-avatar>
+          </w-badge>
+          <w-badge dot type="primary">
+            <w-avatar src="https://picsum.photos/206"></w-avatar>
+          </w-badge>
+          <w-badge dot type="warning">
+            <w-avatar src="https://picsum.photos/207"></w-avatar>
+          </w-badge>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">类型</view>
+        <w-flex size="large" wrap>
+          <w-badge value="{{6}}" type="default">
+            <w-avatar src="https://picsum.photos/208"></w-avatar>
+          </w-badge>
+          <w-badge value="{{6}}" type="primary">
+            <w-avatar src="https://picsum.photos/209"></w-avatar>
+          </w-badge>
+          <w-badge value="{{6}}" type="success">
+            <w-avatar src="https://picsum.photos/210"></w-avatar>
+          </w-badge>
+          <w-badge value="{{6}}" type="info">
+            <w-avatar src="https://picsum.photos/211"></w-avatar>
+          </w-badge>
+          <w-badge value="{{6}}" type="warning">
+            <w-avatar src="https://picsum.photos/212"></w-avatar>
+          </w-badge>
+          <w-badge value="{{6}}" type="error">
+            <w-avatar src="https://picsum.photos/213"></w-avatar>
+          </w-badge>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">自定义颜色</view>
+        <w-flex size="large">
+          <w-badge value="{{8}}" color="#8b5cf6">
+            <w-avatar src="https://picsum.photos/214"></w-avatar>
+          </w-badge>
+          <w-badge value="{{8}}" color="#f43f5e">
+            <w-avatar src="https://picsum.photos/215"></w-avatar>
+          </w-badge>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">波纹动画</view>
+        <w-flex size="large">
+          <w-badge value="{{3}}" processing>
+            <w-avatar src="https://picsum.photos/216"></w-avatar>
+          </w-badge>
+          <w-badge dot processing>
+            <w-avatar src="https://picsum.photos/217"></w-avatar>
+          </w-badge>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">偏移</view>
+        <w-flex size="large">
+          <w-badge value="{{5}}" offset-x="{{-10}}" offset-y="{{10}}">
+            <w-avatar src="https://picsum.photos/218"></w-avatar>
+          </w-badge>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">显示/隐藏</view>
+        <w-flex size="large" align="center">
+          <w-badge value="{{badgeValue}}" show="{{badgeShow}}">
+            <w-avatar src="https://picsum.photos/219"></w-avatar>
+          </w-badge>
+          <w-button size="small" bindtap="handleToggleShow">
+            {{badgeShow ? '隐藏' : '显示'}}
+          </w-button>
+          <w-button size="small" bindtap="handleIncrement">+1</w-button>
+          <w-button size="small" bindtap="handleDecrement">-1</w-button>
+        </w-flex>
+      </view>
+    </view>
+  </scroll-view>
+</div>

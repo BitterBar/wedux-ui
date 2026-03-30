@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "w-tooltip": "../../../src/components/tooltip/tooltip",
+    "w-button": "../../../src/components/button/button"
+  },
+  "navigationBarTitleText": "Tooltip",
+  "disableScroll": true
+}

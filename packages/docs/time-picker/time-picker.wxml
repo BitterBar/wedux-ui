@@ -1,0 +1,76 @@
+<div class="demo-page">
+  <scroll-view scroll-y enhanced="{{true}}" show-scrollbar="{{false}}" class="demo-scroll">
+    <view class="demo-content">
+      <view class="comp-header">
+        <view class="comp-header__tag">time-picker</view>
+        <view class="comp-header__desc">时间选择器，用于选择时、分、秒。</view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">Props</view>
+        <view class="prop-row" wx:for="{{props}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">基础</view>
+        <w-time-picker value="{{val1}}" bind:update:value="onChange1" />
+        <text class="demo-hint">值: {{val1 || '(空)'}}</text>
+      </view>
+
+      <view class="section">
+        <view class="section__title">不显示秒 (HH:mm)</view>
+        <w-time-picker value="{{val2}}" format="HH:mm" clearable bind:update:value="onChange2" />
+        <text class="demo-hint">值: {{val2 || '(空)'}}</text>
+      </view>
+
+      <view class="section">
+        <view class="section__title">步进 (15 分钟间隔)</view>
+        <w-time-picker value="{{val3}}" minuteStep="{{15}}" bind:update:value="onChange3" />
+      </view>
+
+      <view class="section">
+        <view class="section__title">尺寸</view>
+        <w-flex vertical size="small">
+          <w-time-picker placeholder="默认" value="{{val4}}" bind:update:value="onChange4" />
+          <w-time-picker
+            placeholder="medium"
+            size="medium"
+            value="{{val4}}"
+            bind:update:value="onChange4"
+          />
+          <w-time-picker
+            placeholder="small"
+            size="small"
+            value="{{val4}}"
+            bind:update:value="onChange4"
+          />
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">禁用</view>
+        <w-time-picker value="09:00:00" disabled />
+      </view>
+
+      <view class="section">
+        <view class="section__title">只读</view>
+        <w-time-picker value="14:30:00" readonly />
+      </view>
+
+      <view class="section">
+        <view class="section__title">状态</view>
+        <w-flex vertical size="small">
+          <w-time-picker placeholder="error" status="error" />
+          <w-time-picker placeholder="warning" status="warning" />
+        </w-flex>
+      </view>
+    </view>
+  </scroll-view>
+</div>

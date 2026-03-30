@@ -1,0 +1,50 @@
+<view style="height: 100vh">
+  <w-layout>
+    <w-layout-header position="static">
+      <w-navigation-bar title="Tab Bar" />
+    </w-layout-header>
+    <w-layout-content>
+      <scroll-view scroll-y enhanced="{{true}}" show-scrollbar="{{false}}" class="demo-scroll">
+        <view class="demo-content">
+          <view class="comp-header">
+            <view class="comp-header__tag">tab-bar</view>
+            <view class="comp-header__desc">
+              底部导航栏，胶囊形外观，支持图标和文字，可自定义颜色。
+            </view>
+          </view>
+
+          <view class="section">
+            <view class="section__title">Props</view>
+            <view class="prop-row" wx:for="{{props}}" wx:key="name">
+              <view class="prop-row__meta">
+                <text class="prop-row__name">{{item.name}}</text>
+                <text class="prop-row__type">{{item.type}}</text>
+                <text class="prop-row__default">{{item.default}}</text>
+              </view>
+              <view class="prop-row__desc">{{item.desc}}</view>
+            </view>
+          </view>
+
+          <view class="section">
+            <view class="section__title">Events</view>
+            <view class="prop-row">
+              <view class="prop-row__meta">
+                <text class="prop-row__name">change</text>
+              </view>
+              <view class="prop-row__desc">点击 tab 时触发，detail: { key, item }</view>
+            </view>
+          </view>
+
+          <view class="section">
+            <view class="section__title">基本用法</view>
+            <view class="demo-note">当前选中：{{activeTab}}</view>
+          </view>
+
+          <view style="height: 200rpx"></view>
+        </view>
+      </scroll-view>
+    </w-layout-content>
+  </w-layout>
+</view>
+
+<w-tab-bar active="{{activeTab}}" items="{{tabs}}" bind:change="onTabChange" />

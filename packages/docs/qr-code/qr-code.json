@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "w-qr-code": "/src/components/qr-code/qr-code"
+  },
+  "disableScroll": true
+}

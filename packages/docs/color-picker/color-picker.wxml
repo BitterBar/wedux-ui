@@ -1,0 +1,85 @@
+<div class="demo-page">
+  <scroll-view scroll-y enhanced="{{true}}" show-scrollbar="{{false}}" class="demo-scroll">
+    <view class="demo-content">
+      <view class="comp-header">
+        <view class="comp-header__tag">color-picker</view>
+        <view class="comp-header__desc">
+          颜色选择器，支持 SV 调色板、色相/透明度滑块、多模式输入和预设色板。
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">Props</view>
+        <view class="prop-row" wx:for="{{props}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">基础</view>
+        <w-color-picker value="{{val1}}" bind:update:value="onChange1" />
+        <text class="demo-hint">值: {{val1 || '(空)'}}</text>
+      </view>
+
+      <view class="section">
+        <view class="section__title">默认值 + 可清除</view>
+        <w-color-picker value="{{val2}}" clearable bind:update:value="onChange2" />
+        <text class="demo-hint">值: {{val2 || '(空)'}}</text>
+      </view>
+
+      <view class="section">
+        <view class="section__title">透明度</view>
+        <w-color-picker value="{{val3}}" showAlpha bind:update:value="onChange3" />
+        <text class="demo-hint">值: {{val3 || '(空)'}}</text>
+      </view>
+
+      <view class="section">
+        <view class="section__title">预设色板</view>
+        <w-color-picker value="{{val4}}" swatches="{{swatches}}" bind:update:value="onChange4" />
+        <text class="demo-hint">值: {{val4 || '(空)'}}</text>
+      </view>
+
+      <view class="section">
+        <view class="section__title">尺寸</view>
+        <w-flex vertical size="small">
+          <w-color-picker placeholder="默认" value="{{val5}}" bind:update:value="onChange5" />
+          <w-color-picker
+            placeholder="medium"
+            size="medium"
+            value="{{val5}}"
+            bind:update:value="onChange5"
+          />
+          <w-color-picker
+            placeholder="small"
+            size="small"
+            value="{{val5}}"
+            bind:update:value="onChange5"
+          />
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">禁用</view>
+        <w-color-picker value="#07C160" disabled />
+      </view>
+
+      <view class="section">
+        <view class="section__title">只读</view>
+        <w-color-picker value="#FF0000" readonly />
+      </view>
+
+      <view class="section">
+        <view class="section__title">状态</view>
+        <w-flex vertical size="small">
+          <w-color-picker placeholder="error" status="error" />
+          <w-color-picker placeholder="warning" status="warning" />
+        </w-flex>
+      </view>
+    </view>
+  </scroll-view>
+</div>

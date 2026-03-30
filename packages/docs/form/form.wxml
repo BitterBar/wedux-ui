@@ -1,0 +1,231 @@
+<div class="demo-page">
+  <scroll-view scroll-y enhanced="{{true}}" show-scrollbar="{{false}}" class="demo-scroll">
+    <view class="demo-content">
+      <view class="comp-header">
+        <view class="comp-header__tag">form / form-item</view>
+        <view class="comp-header__desc">表单容器，提供数据校验、级联尺寸和禁用等能力。</view>
+      </view>
+
+      <!-- Form Props -->
+      <view class="section">
+        <view class="section__title">Form Props</view>
+        <view class="prop-row" wx:for="{{formProps}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <!-- FormItem Props -->
+      <view class="section">
+        <view class="section__title">FormItem Props</view>
+        <view class="prop-row" wx:for="{{formItemProps}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <!-- Comprehensive Form Demo -->
+      <view class="section">
+        <view class="section__title">综合表单</view>
+        <w-form model="{{formData}}" rules="{{formRules}}" id="demoForm">
+          <w-form-item label="用户名" path="username">
+            <w-input
+              value="{{formData.username}}"
+              placeholder="请输入用户名"
+              bind:update:value="onFieldChange"
+              data-field="username"
+            />
+          </w-form-item>
+
+          <w-form-item label="邮箱" path="email">
+            <w-input
+              value="{{formData.email}}"
+              placeholder="请输入邮箱"
+              bind:update:value="onFieldChange"
+              data-field="email"
+            />
+          </w-form-item>
+
+          <w-form-item label="简介" path="bio">
+            <w-textarea
+              value="{{formData.bio}}"
+              placeholder="请输入简介"
+              autoHeight
+              bind:update:value="onFieldChange"
+              data-field="bio"
+            />
+          </w-form-item>
+
+          <w-form-item label="性别" path="gender">
+            <w-radio-group
+              value="{{formData.gender}}"
+              bind:update:value="onFieldChange"
+              data-field="gender"
+            >
+              <w-radio value="male" label="男" />
+              <w-radio value="female" label="女" />
+            </w-radio-group>
+          </w-form-item>
+
+          <w-form-item label="兴趣" path="agree">
+            <w-checkbox-group
+              value="{{formData.agree}}"
+              bind:update:value="onFieldChange"
+              data-field="agree"
+            >
+              <w-checkbox value="reading" label="阅读" />
+              <w-checkbox value="sports" label="运动" />
+              <w-checkbox value="music" label="音乐" />
+            </w-checkbox-group>
+          </w-form-item>
+
+          <w-form-item label="通知" path="notify">
+            <w-switch
+              checked="{{formData.notify}}"
+              bind:update:checked="onSwitchChange"
+              data-field="notify"
+            />
+          </w-form-item>
+        </w-form>
+
+        <w-flex size="small" style="margin-top: 24rpx">
+          <w-button type="primary" bindtap="handleValidate">校验</w-button>
+          <w-button bindtap="handleRestore">重置校验</w-button>
+        </w-flex>
+      </view>
+
+      <!-- Custom Validator Demo -->
+      <view class="section">
+        <view class="section__title">自定义校验</view>
+        <w-form model="{{formData2}}" id="customForm">
+          <w-form-item path="age" label="年龄" first>
+            <w-input
+              value="{{formData2.age}}"
+              placeholder="请输入年龄"
+              bind:update:value="onField2Change"
+              data-field="age"
+            />
+          </w-form-item>
+
+          <w-form-item path="password" label="密码">
+            <w-input
+              value="{{formData2.password}}"
+              password
+              placeholder="请输入密码"
+              bind:update:value="onField2Change"
+              bind:input="handlePasswordInput"
+              data-field="password"
+            />
+          </w-form-item>
+
+          <w-form-item id="rPasswordFormItem" path="reenteredPassword" label="重复密码" first>
+            <w-input
+              value="{{formData2.reenteredPassword}}"
+              password
+              placeholder="请再次输入密码"
+              disabled="{{!formData2.password}}"
+              bind:update:value="onField2Change"
+              data-field="reenteredPassword"
+            />
+          </w-form-item>
+        </w-form>
+
+        <w-flex size="small" style="margin-top: 24rpx">
+          <w-button type="primary" bindtap="handleValidate2">验证</w-button>
+          <w-button bindtap="handleRestore2">重置校验</w-button>
+        </w-flex>
+      </view>
+
+      <!-- Label Placement Left -->
+      <view class="section">
+        <view class="section__title">labelPlacement="left"</view>
+        <w-form labelPlacement="left" labelWidth="160rpx" disabled>
+          <w-form-item label="用户名" required>
+            <w-input placeholder="请输入" />
+          </w-form-item>
+          <w-form-item label="邮箱">
+            <w-input placeholder="请输入" />
+          </w-form-item>
+          <w-form-item label="通知">
+            <w-switch />
+          </w-form-item>
+        </w-form>
+      </view>
+
+      <!-- Inline Layout -->
+      <view class="section">
+        <view class="section__title">inline 行内布局</view>
+        <w-form inline>
+          <w-form-item label="姓名">
+            <w-input placeholder="请输入" />
+          </w-form-item>
+          <w-form-item label="年龄">
+            <w-input placeholder="请输入" />
+          </w-form-item>
+        </w-form>
+      </view>
+
+      <!-- Require Mark Placement -->
+      <view class="section">
+        <view class="section__title">requireMarkPlacement</view>
+        <w-form requireMarkPlacement="left" disabled>
+          <w-form-item label="星号在左" required>
+            <w-input placeholder="left" />
+          </w-form-item>
+        </w-form>
+        <w-form requireMarkPlacement="right" style="margin-top: 16rpx" disabled>
+          <w-form-item label="星号在右" required>
+            <w-input placeholder="right" />
+          </w-form-item>
+        </w-form>
+      </view>
+
+      <!-- Manual Validation Status -->
+      <view class="section">
+        <view class="section__title">手动状态</view>
+        <w-form>
+          <w-form-item label="error 状态" validationStatus="error" feedback="这是手动错误提示">
+            <w-input placeholder="validationStatus + feedback" status="error" />
+          </w-form-item>
+          <w-form-item label="warning 状态" validationStatus="warning" feedback="这是手动警告提示">
+            <w-input placeholder="validationStatus + feedback" status="warning" />
+          </w-form-item>
+        </w-form>
+      </view>
+
+      <!-- Size Cascade -->
+      <view class="section">
+        <view class="section__title">级联 size="small"</view>
+        <w-form size="small">
+          <w-form-item label="输入框">
+            <w-input placeholder="small" />
+          </w-form-item>
+          <w-form-item label="开关">
+            <w-switch />
+          </w-form-item>
+        </w-form>
+      </view>
+
+      <!-- Disabled -->
+      <view class="section">
+        <view class="section__title">级联禁用</view>
+        <w-form disabled>
+          <w-form-item label="输入框">
+            <w-input placeholder="disabled" />
+          </w-form-item>
+          <w-form-item label="开关">
+            <w-switch checked />
+          </w-form-item>
+        </w-form>
+      </view>
+    </view>
+  </scroll-view>
+</div>

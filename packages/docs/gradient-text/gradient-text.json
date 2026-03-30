@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "w-gradient-text": "/src/components/gradient-text/gradient-text"
+  },
+  "navigationBarTitleText": "Gradient Text",
+  "disableScroll": true
+}

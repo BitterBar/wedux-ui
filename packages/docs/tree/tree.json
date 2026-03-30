@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "w-tree": "/src/components/tree/tree",
+    "w-input": "/src/components/input/input"
+  },
+  "navigationBarTitleText": "Tree",
+  "disableScroll": true
+}

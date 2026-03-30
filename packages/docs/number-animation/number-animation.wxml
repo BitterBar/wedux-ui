@@ -1,0 +1,90 @@
+<div class="demo-page">
+  <scroll-view scroll-y enhanced="{{true}}" show-scrollbar="{{false}}" class="demo-scroll">
+    <view class="demo-content">
+      <view class="comp-header">
+        <view class="comp-header__tag">number-animation</view>
+        <view class="comp-header__desc">数字动画，用于数值的动态过渡展示。</view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">Props</view>
+        <view class="prop-row" wx:for="{{props}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">基础用法</view>
+        <view class="demo-row demo-row--lg">
+          <w-number-animation from="{{0}}" to="{{12345}}" />
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">千分位分隔</view>
+        <view class="demo-row demo-row--lg">
+          <w-number-animation from="{{0}}" to="{{1234567}}" show-separator />
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">小数精度</view>
+        <view class="demo-row demo-row--lg">
+          <w-number-animation from="{{0}}" to="{{3.1415926}}" precision="{{4}}" />
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">手动控制</view>
+        <view class="demo-row demo-row--lg">
+          <w-number-animation
+            id="demo"
+            from="{{0}}"
+            to="{{99999}}"
+            active="{{false}}"
+            show-separator
+          />
+        </view>
+        <view class="demo-row">
+          <w-button size="sm" bindtap="onReplay">播放动画</w-button>
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">动态更新</view>
+        <view class="demo-row demo-row--lg">
+          <w-number-animation from="{{0}}" to="{{manualTo}}" show-separator />
+        </view>
+        <view class="demo-row">
+          <w-button size="sm" bindtap="onRandomValue">随机数值</w-button>
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">自定义样式</view>
+        <view class="demo-row">
+          <w-number-animation
+            from="{{0}}"
+            to="{{8888}}"
+            color="var(--color-brand)"
+            font-size="60rpx"
+            show-separator
+          />
+        </view>
+        <view class="demo-row">
+          <w-number-animation
+            from="{{0}}"
+            to="{{1024}}"
+            color="var(--color-danger)"
+            font-size="48rpx"
+          />
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</div>

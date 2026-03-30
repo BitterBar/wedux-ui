@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "w-highlight": "/src/components/highlight/highlight"
+  },
+  "navigationBarTitleText": "Highlight",
+  "disableScroll": true
+}

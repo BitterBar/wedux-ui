@@ -1,0 +1,369 @@
+<div class="demo-page">
+  <scroll-view scroll-y enhanced="{{true}}" show-scrollbar="{{false}}" class="demo-scroll">
+    <view class="demo-header" style="{{headerPaddingTop}}">
+      <view class="demo-header__title">wedux-ui</view>
+      <view class="demo-header__desc">微信小程序组件库</view>
+    </view>
+    <view class="demo-content">
+      <view class="catalog-group">
+        <view class="catalog-group__label">主题</view>
+        <view class="catalog-card">
+          <navigator
+            url="/packages/docs/theme-provider/theme-provider"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">Theme Provider 主题提供者</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+        </view>
+      </view>
+
+      <view class="catalog-group">
+        <view class="catalog-group__label">布局</view>
+        <view class="catalog-card">
+          <navigator
+            url="/packages/docs/flex/flex"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">Flex</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/layout/layout"
+            class="catalog-item"
+            hover-class="catalog-item--hover"
+          >
+            <view class="catalog-item__name">Layout</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/list/list"
+            class="catalog-item"
+            hover-class="catalog-item--active"
+          >
+            <view class="catalog-item__name">List 列表</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/navigation-bar/navigation-bar"
+            class="catalog-item"
+            hover-class="catalog-item--active"
+          >
+            <view class="catalog-item__name">Navigation Bar 导航栏</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/infinite-scroll/infinite-scroll"
+            class="catalog-item"
+            hover-class="catalog-item--active"
+          >
+            <view class="catalog-item__name">Infinite Scroll 无限滚动</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/tab-bar/tab-bar"
+            class="catalog-item"
+            hover-class="catalog-item--active"
+          >
+            <view class="catalog-item__name">Tab Bar 底部导航</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+        </view>
+      </view>
+
+      <view class="catalog-group">
+        <view class="catalog-group__label">基础</view>
+        <view class="catalog-card">
+          <navigator
+            url="/packages/docs/button/button"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">Button 按钮</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/button-group/button-group"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">Button Group 按钮组</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/float-button/float-button"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">Float Button 浮动按钮</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/avatar/avatar"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">Avatar 头像</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/card/card"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">Card 卡片</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/divider/divider"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">Divider 分割线</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/ellipsis/ellipsis"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">Ellipsis 文本省略</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/gradient-text/gradient-text"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">Gradient Text 渐变文字</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/h/h"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">H 标题</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/tag/tag"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">Tag 标签</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/badge/badge"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">Badge 徽标</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/watermark/watermark"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">Watermark 水印</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/drawer/drawer"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">Drawer 抽屉</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/number-animation/number-animation"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">Number Animation 数字动画</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/qr-code/qr-code"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">QR Code 二维码</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/highlight/highlight"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">Highlight 高亮文本</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/popover/popover"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">Popover 弹出气泡</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/tooltip/tooltip"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">Tooltip 文字提示</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/back-top/back-top"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">Back Top 返回顶部</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+        </view>
+      </view>
+
+      <view class="catalog-group">
+        <view class="catalog-group__label">表单</view>
+        <view class="catalog-card">
+          <navigator
+            url="/packages/docs/form/form"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">Form 表单</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/input/input"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">Input 输入框</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/input-otp/input-otp"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">Input OTP 验证码输入</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/switch/switch"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">Switch 开关</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/radio/radio"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">Radio 单选</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/checkbox/checkbox"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">Checkbox 多选</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/time-picker/time-picker"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">Time Picker 时间选择</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/date-picker/date-picker"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">Date Picker 日期选择</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/calendar/calendar"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">Calendar 日历</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/color-picker/color-picker"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">Color Picker 颜色选择</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/rate/rate"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">Rate 评分</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/select/select"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">Select 选择器</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/stepper/stepper"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">Stepper 步进器</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/tree/tree"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">Tree 树形控件</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/tree-select/tree-select"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">TreeSelect 树形选择</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
+            url="/packages/docs/upload/upload"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">Upload 上传</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</div>

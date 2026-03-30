@@ -1,0 +1,69 @@
+<div class="demo-page">
+  <scroll-view scroll-y enhanced="{{true}}" show-scrollbar="{{false}}" class="demo-scroll">
+    <view class="demo-content">
+      <view class="comp-header">
+        <view class="comp-header__tag">h</view>
+        <view class="comp-header__desc">
+          标题组件，提供 H1 ~ H6 六个层级，支持语义类型与前缀装饰条。
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">Props</view>
+        <view class="prop-row" wx:for="{{props}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">标题层级</view>
+        <view class="demo-row"><w-h level="{{1}}">H1 一级标题</w-h></view>
+        <view class="demo-row"><w-h level="{{2}}">H2 二级标题</w-h></view>
+        <view class="demo-row"><w-h level="{{3}}">H3 三级标题</w-h></view>
+        <view class="demo-row"><w-h level="{{4}}">H4 四级标题</w-h></view>
+        <view class="demo-row"><w-h level="{{5}}">H5 五级标题</w-h></view>
+        <view class="demo-row"><w-h level="{{6}}">H6 六级标题</w-h></view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">语义类型</view>
+        <view class="demo-row"><w-h level="{{3}}" type="primary">Primary 标题</w-h></view>
+        <view class="demo-row"><w-h level="{{3}}" type="info">Info 标题</w-h></view>
+        <view class="demo-row"><w-h level="{{3}}" type="success">Success 标题</w-h></view>
+        <view class="demo-row"><w-h level="{{3}}" type="warning">Warning 标题</w-h></view>
+        <view class="demo-row"><w-h level="{{3}}" type="error">Error 标题</w-h></view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">前缀装饰条</view>
+        <view class="demo-row"><w-h level="{{2}}" prefix>带装饰条的标题</w-h></view>
+        <view class="demo-row">
+          <w-h level="{{3}}" prefix type="primary">Primary 装饰条</w-h>
+        </view>
+        <view class="demo-row"><w-h level="{{3}}" prefix type="info">Info 装饰条</w-h></view>
+        <view class="demo-row">
+          <w-h level="{{3}}" prefix type="success">Success 装饰条</w-h>
+        </view>
+        <view class="demo-row">
+          <w-h level="{{3}}" prefix type="warning">Warning 装饰条</w-h>
+        </view>
+        <view class="demo-row"><w-h level="{{3}}" prefix type="error">Error 装饰条</w-h></view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">对齐文字（装饰条外置）</view>
+        <view class="demo-row" style="padding-left: 48rpx">
+          <w-h level="{{3}}" prefix alignText>装饰条不占文字空间</w-h>
+        </view>
+        <view class="demo-row" style="padding-left: 48rpx">
+          <w-h level="{{3}}" prefix alignText type="primary">Primary 外置装饰条</w-h>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</div>

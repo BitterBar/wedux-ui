@@ -1,0 +1,61 @@
+<div class="demo-page">
+  <scroll-view scroll-y enhanced="{{true}}" show-scrollbar="{{false}}" class="demo-scroll">
+    <view class="demo-content">
+      <view class="comp-header">
+        <view class="comp-header__tag">switch</view>
+        <view class="comp-header__desc">开关组件，用于切换两种状态。</view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">Props</view>
+        <view class="prop-row" wx:for="{{props}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">基础</view>
+        <w-flex align="center" size="small">
+          <w-switch checked="{{val1}}" bind:update:checked="onToggle1" />
+          <text>{{val1 ? '开启' : '关闭'}}</text>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">尺寸</view>
+        <w-flex align="center" size="small">
+          <w-switch checked="{{val2}}" bind:update:checked="onToggle2" />
+          <w-switch checked="{{val2}}" size="small" bind:update:checked="onToggle2" />
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">自定义颜色</view>
+        <w-switch checked="{{val3}}" checkedColor="#fa5151" bind:update:checked="onToggle3" />
+      </view>
+
+      <view class="section">
+        <view class="section__title">带文字</view>
+        <w-switch
+          checked="{{val4}}"
+          checkedText="开"
+          uncheckedText="关"
+          bind:update:checked="onToggle4"
+        />
+      </view>
+
+      <view class="section">
+        <view class="section__title">禁用</view>
+        <w-flex align="center" size="small">
+          <w-switch disabled />
+          <w-switch checked disabled />
+        </w-flex>
+      </view>
+    </view>
+  </scroll-view>
+</div>

@@ -1,0 +1,111 @@
+<div class="demo-page">
+  <scroll-view scroll-y enhanced="{{true}}" show-scrollbar="{{false}}" class="demo-scroll">
+    <view class="demo-content">
+      <view class="comp-header">
+        <view class="comp-header__tag">radio-group / radio</view>
+        <view class="comp-header__desc">单选组件，用于在一组选项中选择一个。</view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">RadioGroup Props</view>
+        <view class="prop-row" wx:for="{{groupProps}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">Radio Props</view>
+        <view class="prop-row" wx:for="{{radioProps}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">基础</view>
+        <w-radio-group value="{{val1}}" bind:update:value="onChange1">
+          <w-radio value="apple" label="苹果" />
+          <w-radio value="banana" label="香蕉" />
+          <w-radio value="orange" label="橙子" />
+        </w-radio-group>
+        <view class="demo-hint">当前选中：{{val1}}</view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">纵向排列</view>
+        <w-radio-group value="{{val2}}" vertical bind:update:value="onChange2">
+          <w-radio value="opt1" label="选项一" />
+          <w-radio value="opt2" label="选项二" />
+          <w-radio value="opt3" label="选项三" />
+        </w-radio-group>
+      </view>
+
+      <view class="section">
+        <view class="section__title">禁用</view>
+        <w-radio-group value="{{val3}}" bind:update:value="onChange3">
+          <w-radio value="A" label="选项 A" />
+          <w-radio value="B" label="选项 B" disabled />
+          <w-radio value="C" label="选项 C" />
+        </w-radio-group>
+      </view>
+
+      <view class="section">
+        <view class="section__title">整组禁用</view>
+        <w-radio-group value="apple" disabled>
+          <w-radio value="apple" label="苹果" />
+          <w-radio value="banana" label="香蕉" />
+        </w-radio-group>
+      </view>
+
+      <view class="section">
+        <view class="section__title">RadioButton Props</view>
+        <view class="prop-row" wx:for="{{radioButtonProps}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">按钮样式</view>
+        <w-radio-group value="{{val4}}" bind:update:value="onChange4">
+          <w-radio-button value="small" label="小杯" />
+          <w-radio-button value="medium" label="中杯" />
+          <w-radio-button value="large" label="大杯" />
+        </w-radio-group>
+        <view class="demo-hint">当前选中：{{val4}}</view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">按钮样式 — 更多选项</view>
+        <w-radio-group value="{{val5}}" bind:update:value="onChange5">
+          <w-radio-button value="normal" label="正常冰" />
+          <w-radio-button value="less" label="少冰" />
+          <w-radio-button value="none" label="去冰" />
+          <w-radio-button value="hot" label="热饮" />
+        </w-radio-group>
+      </view>
+
+      <view class="section">
+        <view class="section__title">按钮样式 — 禁用</view>
+        <w-radio-group value="{{val6}}" bind:update:value="onChange6">
+          <w-radio-button value="A" label="选项 A" />
+          <w-radio-button value="B" label="选项 B" disabled />
+          <w-radio-button value="C" label="选项 C" />
+        </w-radio-group>
+      </view>
+    </view>
+  </scroll-view>
+</div>

@@ -1,0 +1,65 @@
+<div class="demo-page">
+  <scroll-view scroll-y enhanced="{{true}}" show-scrollbar="{{false}}" class="demo-scroll">
+    <view class="demo-content">
+      <view class="comp-header">
+        <view class="comp-header__tag">theme-provider</view>
+        <view class="comp-header__desc">通过 CSS 变量注入实现局部主题覆盖，可包裹任意子组件。</view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">Props</view>
+        <view class="prop-row" wx:for="{{props}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">暗色主题</view>
+        <w-theme-provider theme="{{darkTheme}}">
+          <view style="padding: 24rpx; border-radius: 12rpx; background: var(--color-bg-page)">
+            <w-button type="primary">Dark 主题按钮</w-button>
+            <view style="margin-top: 16rpx">
+              <w-switch checked />
+            </view>
+            <view style="margin-top: 16rpx">
+              <w-input value="暗色输入框" />
+            </view>
+          </view>
+        </w-theme-provider>
+      </view>
+
+      <view class="section">
+        <view class="section__title">暗色主题 + 覆盖</view>
+        <w-theme-provider theme="{{darkTheme}}" themeOverrides="{{overrides}}">
+          <view style="padding: 24rpx; border-radius: 12rpx; background: var(--color-bg-page)">
+            <w-button type="primary">Dark + 蓝色圆角按钮</w-button>
+          </view>
+        </w-theme-provider>
+      </view>
+
+      <view class="section">
+        <view class="section__title">自定义主题</view>
+        <w-theme-provider theme="{{customTheme}}">
+          <view style="padding: 24rpx; border-radius: 12rpx; background: var(--color-bg-page)">
+            <w-button type="primary">暖色自定义主题</w-button>
+            <view style="margin-top: 16rpx">
+              <w-switch checked />
+            </view>
+          </view>
+        </w-theme-provider>
+      </view>
+
+      <view class="section">
+        <view class="section__title">仅覆盖个别变量</view>
+        <w-theme-provider themeOverrides="{{btnOverrides}}">
+          <w-button type="primary">自定义高度和圆角</w-button>
+        </w-theme-provider>
+      </view>
+    </view>
+  </scroll-view>
+</div>

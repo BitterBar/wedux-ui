@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "w-tree-select": "/src/components/tree-select/tree-select"
+  },
+  "navigationBarTitleText": "TreeSelect",
+  "disableScroll": true
+}

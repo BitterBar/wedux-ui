@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "w-drawer": "/src/components/drawer/drawer",
+    "w-button": "/src/components/button/button",
+    "w-flex": "/src/components/flex/flex"
+  },
+  "navigationBarTitleText": "Drawer",
+  "disableScroll": true
+}

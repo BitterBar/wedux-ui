@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "w-checkbox-group": "/src/components/checkbox-group/checkbox-group",
+    "w-checkbox": "/src/components/checkbox/checkbox"
+  },
+  "navigationBarTitleText": "Checkbox",
+  "disableScroll": true
+}

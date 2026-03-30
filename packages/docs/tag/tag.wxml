@@ -1,0 +1,150 @@
+<div class="demo-page">
+  <scroll-view scroll-y enhanced="{{true}}" show-scrollbar="{{false}}" class="demo-scroll">
+    <view class="demo-content">
+      <view class="comp-header">
+        <view class="comp-header__tag">tag</view>
+        <view class="comp-header__desc">标签，用于标记和分类。</view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">Props</view>
+        <view class="prop-row" wx:for="{{props}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">基础用法</view>
+        <w-flex size="small" wrap>
+          <w-tag type="default">默认</w-tag>
+          <w-tag type="primary">主要</w-tag>
+          <w-tag type="success">成功</w-tag>
+          <w-tag type="info">信息</w-tag>
+          <w-tag type="warning">警告</w-tag>
+          <w-tag type="error">错误</w-tag>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">尺寸</view>
+        <w-flex size="small" wrap align="center">
+          <w-tag size="small" type="primary">小</w-tag>
+          <w-tag size="medium" type="primary">中</w-tag>
+          <w-tag size="large" type="primary">大</w-tag>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">圆角</view>
+        <w-flex size="small" wrap>
+          <w-tag type="default" round>默认</w-tag>
+          <w-tag type="primary" round>主要</w-tag>
+          <w-tag type="success" round>成功</w-tag>
+          <w-tag type="info" round>信息</w-tag>
+          <w-tag type="warning" round>警告</w-tag>
+          <w-tag type="error" round>错误</w-tag>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">无边框</view>
+        <w-flex size="small" wrap>
+          <w-tag type="default" bordered="{{false}}">默认</w-tag>
+          <w-tag type="primary" bordered="{{false}}">主要</w-tag>
+          <w-tag type="success" bordered="{{false}}">成功</w-tag>
+          <w-tag type="info" bordered="{{false}}">信息</w-tag>
+          <w-tag type="warning" bordered="{{false}}">警告</w-tag>
+          <w-tag type="error" bordered="{{false}}">错误</w-tag>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">加粗</view>
+        <w-flex size="small" wrap>
+          <w-tag type="primary" strong>加粗主要</w-tag>
+          <w-tag type="error" strong>加粗错误</w-tag>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">可关闭</view>
+        <w-flex size="small" wrap>
+          <w-tag wx:if="{{showTag1}}" type="primary" closable bindclose="handleClose1">
+            标签一
+          </w-tag>
+          <w-tag wx:if="{{showTag2}}" type="success" closable bindclose="handleClose2">
+            标签二
+          </w-tag>
+          <w-tag wx:if="{{showTag3}}" type="warning" closable bindclose="handleClose3">
+            标签三
+          </w-tag>
+          <w-tag
+            wx:if="{{!showTag1 || !showTag2 || !showTag3}}"
+            type="default"
+            bindtap="handleReset"
+          >
+            重置
+          </w-tag>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">可选中</view>
+        <w-flex size="small" wrap>
+          <w-tag
+            type="primary"
+            checkable
+            checked="{{checkable1}}"
+            bind:update:checked="handleCheck1"
+          >
+            选项一
+          </w-tag>
+          <w-tag
+            type="primary"
+            checkable
+            checked="{{checkable2}}"
+            bind:update:checked="handleCheck2"
+          >
+            选项二
+          </w-tag>
+          <w-tag
+            type="primary"
+            checkable
+            checked="{{checkable3}}"
+            bind:update:checked="handleCheck3"
+          >
+            选项三
+          </w-tag>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">禁用</view>
+        <w-flex size="small" wrap>
+          <w-tag type="primary" disabled>禁用</w-tag>
+          <w-tag type="success" disabled closable>禁用可关闭</w-tag>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">自定义颜色</view>
+        <w-flex size="small" wrap>
+          <w-tag color="#8b5cf6" text-color="#ffffff" border-color="#8b5cf6">紫色</w-tag>
+          <w-tag color="#f43f5e" text-color="#ffffff" border-color="#f43f5e">玫红</w-tag>
+          <w-tag
+            color="rgba(99,102,241,0.1)"
+            text-color="#6366f1"
+            border-color="rgba(99,102,241,0.3)"
+          >
+            靛蓝
+          </w-tag>
+        </w-flex>
+      </view>
+    </view>
+  </scroll-view>
+</div>

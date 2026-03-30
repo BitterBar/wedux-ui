@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "w-tag": "/src/components/tag/tag",
+    "w-flex": "/src/components/flex/flex"
+  },
+  "navigationBarTitleText": "Tag",
+  "disableScroll": true
+}

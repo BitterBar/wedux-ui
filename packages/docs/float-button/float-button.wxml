@@ -1,0 +1,32 @@
+<div class="demo-page">
+  <scroll-view scroll-y enhanced="{{true}}" show-scrollbar="{{false}}" class="demo-scroll">
+    <view class="demo-content">
+      <view class="comp-header">
+        <view class="comp-header__tag">float-button</view>
+        <view class="comp-header__desc">悬浮按钮，固定显示在屏幕特定位置。</view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">Props</view>
+        <view class="prop-row" wx:for="{{fabProps}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">说明</view>
+        <view class="demo-note">以下悬浮按钮固定显示在屏幕右下角。</view>
+      </view>
+    </view>
+  </scroll-view>
+</div>
+
+<!-- 单个悬浮按钮：右下角，primary 类型 -->
+<w-float-button type="primary" shape="circle" position="bottom-right">
+  <text class="demo-fab-icon">★</text>
+</w-float-button>

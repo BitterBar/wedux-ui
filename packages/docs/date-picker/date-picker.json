@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "w-date-picker": "/src/components/date-picker/date-picker",
+    "w-flex": "/src/components/flex/flex"
+  },
+  "navigationBarTitleText": "Date Picker",
+  "disableScroll": true
+}

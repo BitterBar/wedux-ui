@@ -1,0 +1,77 @@
+<div class="demo-page">
+  <scroll-view scroll-y enhanced="{{true}}" show-scrollbar="{{false}}" class="demo-scroll">
+    <view class="demo-content">
+      <view class="comp-header">
+        <view class="comp-header__tag">divider</view>
+        <view class="comp-header__desc">分割线，用于区隔内容。</view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">Props</view>
+        <view class="prop-row" wx:for="{{props}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">基础分割线</view>
+        <text>上方内容</text>
+        <w-divider></w-divider>
+        <text>下方内容</text>
+      </view>
+
+      <view class="section">
+        <view class="section__title">虚线</view>
+        <text>上方内容</text>
+        <w-divider dashed></w-divider>
+        <text>下方内容</text>
+      </view>
+
+      <view class="section">
+        <view class="section__title">带标题</view>
+        <w-divider title="居中标题"></w-divider>
+        <w-divider title="左侧标题" title-placement="left"></w-divider>
+        <w-divider title="右侧标题" title-placement="right"></w-divider>
+      </view>
+
+      <view class="section">
+        <view class="section__title">带标题虚线</view>
+        <w-divider title="虚线标题" dashed></w-divider>
+      </view>
+
+      <view class="section">
+        <view class="section__title">插槽标题</view>
+        <w-divider custom-title>
+          <text style="color: var(--color-brand)">自定义插槽内容</text>
+        </w-divider>
+      </view>
+
+      <view class="section">
+        <view class="section__title">垂直分割线</view>
+        <view style="display: flex; align-items: center">
+          <text>文字</text>
+          <w-divider vertical></w-divider>
+          <text>文字</text>
+          <w-divider vertical></w-divider>
+          <text>文字</text>
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">垂直虚线</view>
+        <view style="display: flex; align-items: center">
+          <text>文字</text>
+          <w-divider vertical dashed></w-divider>
+          <text>文字</text>
+          <w-divider vertical dashed></w-divider>
+          <text>文字</text>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</div>

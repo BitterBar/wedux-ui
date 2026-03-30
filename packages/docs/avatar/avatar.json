@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "w-avatar": "/src/components/avatar/avatar",
+    "w-avatar-group": "/src/components/avatar-group/avatar-group",
+    "w-flex": "/src/components/flex/flex"
+  },
+  "navigationBarTitleText": "Avatar",
+  "disableScroll": true
+}

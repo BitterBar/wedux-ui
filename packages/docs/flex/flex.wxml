@@ -1,0 +1,91 @@
+<div class="demo-page">
+  <scroll-view scroll-y enhanced="{{true}}" show-scrollbar="{{false}}" class="demo-scroll">
+    <view class="demo-content">
+      <view class="comp-header">
+        <view class="comp-header__tag">flex</view>
+        <view class="comp-header__desc">弹性布局容器，通过属性控制排列方向、间距和对齐方式。</view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">Props</view>
+        <view class="prop-row" wx:for="{{props}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">横向排列 row（默认）</view>
+        <w-flex>
+          <w-button type="primary" size="small">A</w-button>
+          <w-button type="default" size="small">B</w-button>
+          <w-button type="tertiary" size="small">C</w-button>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">纵向排列 vertical</view>
+        <w-flex vertical>
+          <w-button type="primary">Top</w-button>
+          <w-button type="default">Middle</w-button>
+          <w-button type="error">Bottom</w-button>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">自动换行 wrap</view>
+        <w-flex wrap>
+          <w-button wx:for="{{10}}" wx:key="*this" type="default" size="small">
+            Item {{item}}
+          </w-button>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">间距 size: none / small / medium / large</view>
+        <w-flex vertical size="medium">
+          <w-flex size="none">
+            <w-button type="primary" size="small">none</w-button>
+            <w-button type="primary" size="small">B</w-button>
+            <w-button type="primary" size="small">C</w-button>
+          </w-flex>
+          <w-flex size="small">
+            <w-button type="primary" size="small">small</w-button>
+            <w-button type="primary" size="small">B</w-button>
+            <w-button type="primary" size="small">C</w-button>
+          </w-flex>
+          <w-flex size="medium">
+            <w-button type="primary" size="small">medium</w-button>
+            <w-button type="primary" size="small">B</w-button>
+            <w-button type="primary" size="small">C</w-button>
+          </w-flex>
+          <w-flex size="large">
+            <w-button type="primary" size="small">large</w-button>
+            <w-button type="primary" size="small">B</w-button>
+            <w-button type="primary" size="small">C</w-button>
+          </w-flex>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">自定义间距 size: 40（rpx）</view>
+        <w-flex size="{{40}}">
+          <w-button type="primary" size="small">A</w-button>
+          <w-button type="primary" size="small">B</w-button>
+          <w-button type="primary" size="small">C</w-button>
+        </w-flex>
+      </view>
+
+      <view class="section">
+        <view class="section__title">行列不同间距 size: [40, 20]</view>
+        <w-flex size="{{[40, 20]}}" wrap>
+          <w-button wx:for="{{10}}" wx:key="*this" type="primary" size="small">{{item}}</w-button>
+        </w-flex>
+      </view>
+    </view>
+  </scroll-view>
+</div>

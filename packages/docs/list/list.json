@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "w-list": "/src/components/list/list",
+    "w-list-item": "/src/components/list-item/list-item",
+    "w-avatar": "/src/components/avatar/avatar",
+    "w-tag": "/src/components/tag/tag",
+    "w-button": "/src/components/button/button"
+  },
+  "navigationBarTitleText": "List",
+  "disableScroll": true
+}

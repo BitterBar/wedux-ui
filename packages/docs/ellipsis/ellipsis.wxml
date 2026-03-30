@@ -1,0 +1,57 @@
+<div class="demo-page">
+  <scroll-view scroll-y enhanced="{{true}}" show-scrollbar="{{false}}" class="demo-scroll">
+    <view class="demo-content">
+      <view class="comp-header">
+        <view class="comp-header__tag">ellipsis</view>
+        <view class="comp-header__desc">文本省略，超出指定行数时自动截断并显示省略号。</view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">Props</view>
+        <view class="prop-row" wx:for="{{props}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">单行省略</view>
+        <w-ellipsis>
+          这是一段很长的文字，用来测试单行文本省略功能，当文本超出容器宽度时会自动截断并显示省略号。
+        </w-ellipsis>
+      </view>
+
+      <view class="section">
+        <view class="section__title">多行省略</view>
+        <w-ellipsis line-clamp="{{2}}">
+          这是一段很长的文字，用来测试多行文本省略功能。当文本超出指定的行数时，会自动截断并显示省略号。这个功能在展示摘要、评论预览等场景中非常有用，可以保持界面整洁。
+        </w-ellipsis>
+      </view>
+
+      <view class="section">
+        <view class="section__title">3 行省略</view>
+        <w-ellipsis line-clamp="{{3}}">
+          这是一段很长的文字，用来测试三行文本省略功能。当文本超出指定的行数时，会自动截断并在末尾显示省略号。这种多行省略在移动端非常常见，比如文章列表的摘要展示、商品描述的预览等场景。通过控制显示行数，可以让页面布局更加统一和美观。
+        </w-ellipsis>
+      </view>
+
+      <view class="section">
+        <view class="section__title">点击展开/收起</view>
+        <w-ellipsis line-clamp="{{2}}" expand-trigger="click">
+          这是一段很长的文字，点击可以展开查看全部内容。当文本超出指定的行数时，会自动截断并显示省略号。点击后文本会完整展示，再次点击则收起。这种交互方式在移动端非常常见，比如「查看更多」的效果。
+        </w-ellipsis>
+      </view>
+
+      <view class="section">
+        <view class="section__title">单行点击展开</view>
+        <w-ellipsis expand-trigger="click">
+          这是一段很长的单行文字，点击可以展开查看全部内容，再次点击则收起。这种交互方式在显示长标题或长文件名时非常有用。
+        </w-ellipsis>
+      </view>
+    </view>
+  </scroll-view>
+</div>

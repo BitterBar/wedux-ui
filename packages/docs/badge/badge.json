@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "w-badge": "/src/components/badge/badge",
+    "w-avatar": "/src/components/avatar/avatar",
+    "w-flex": "/src/components/flex/flex",
+    "w-button": "/src/components/button/button"
+  },
+  "navigationBarTitleText": "Badge",
+  "disableScroll": true
+}
