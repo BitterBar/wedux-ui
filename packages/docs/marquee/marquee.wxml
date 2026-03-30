@@ -1,0 +1,52 @@
+<div class="demo-page">
+  <scroll-view scroll-y enhanced="{{true}}" show-scrollbar="{{false}}" class="demo-scroll">
+    <view class="demo-content">
+      <view class="comp-header">
+        <view class="comp-header__tag">marquee</view>
+        <view class="comp-header__desc">走马灯，文本内容水平无缝滚动。</view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">Props</view>
+        <view class="prop-row" wx:for="{{props}}" wx:key="name">
+          <view class="prop-row__meta">
+            <text class="prop-row__name">{{item.name}}</text>
+            <text class="prop-row__type">{{item.type}}</text>
+            <text class="prop-row__default">{{item.default}}</text>
+          </view>
+          <view class="prop-row__desc">{{item.desc}}</view>
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section__title">基础用法</view>
+        <w-marquee
+          text="谁用运气换呼吸 谁用灵魂换稻米 谁用运气换呼吸 谁用灵魂换稻米 谁用运气换呼吸 谁用灵魂换稻米"
+        />
+      </view>
+
+      <view class="section">
+        <view class="section__title">慢速（speed=24）</view>
+        <w-marquee text="慢速滚动示例文字，感受一下不同速度的效果对比" speed="{{24}}" />
+      </view>
+
+      <view class="section">
+        <view class="section__title">快速（speed=120）</view>
+        <w-marquee text="快速滚动示例文字，感受一下不同速度的效果对比" speed="{{120}}" />
+      </view>
+
+      <view class="section">
+        <view class="section__title">autoFill 自动填充</view>
+        <w-marquee text="短文本" auto-fill speed="{{48}}" />
+      </view>
+
+      <view class="section">
+        <view class="section__title">pauseOnTap 点击暂停</view>
+        <w-marquee
+          text="点击我可以暂停或恢复动画，再试一次！点击我可以暂停或恢复动画，再试一次！"
+          pause-on-tap
+        />
+      </view>
+    </view>
+  </scroll-view>
+</div>

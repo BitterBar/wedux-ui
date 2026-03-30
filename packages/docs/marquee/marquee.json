@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "w-marquee": "/src/components/marquee/marquee"
+  },
+  "navigationBarTitleText": "Marquee",
+  "disableScroll": true
+}
