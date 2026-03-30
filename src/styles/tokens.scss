@@ -289,4 +289,9 @@ page {
   /* Avatar */
   --w-avatar-radius: var(--radius-sm);
   --w-avatar-bg: var(--color-avatar-bg);
+
+  /* Marquee */
+  --w-marquee-gap: 32rpx;
+  --w-marquee-font-size: var(--font-size-md);
+  --w-marquee-color: var(--color-text-primary);
 }
