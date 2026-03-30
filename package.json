@@ -12,7 +12,16 @@
     "component",
     "ui"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BitterBar/wxma-ui.git"
+  },
+  "author": "L",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BitterBar/wxma-ui/issues"
+  },
+  "homepage": "https://github.com/BitterBar/wxma-ui#readme",
   "packageManager": "pnpm@10.26.0",
   "scripts": {
     "build": "node scripts/build.js",
