@@ -21,16 +21,17 @@ Component({
   data: {
     _items: [0],
     _duration: 2,
-    _play: 'running',
+    _play: 'paused',
     _containerStyle: '',
-    _userPaused: false,
   },
 
   observers: {
     'text, speed, autoFill': function () {
       if (!this._ready) return;
       if (!this.data.text) return;
-      this._measure();
+      wx.nextTick(() => {
+        this._measure();
+      });
     },
     '_duration, _play': function () {
       this._applyStyle();
@@ -64,7 +65,7 @@ Component({
             const q2 = this.createSelectorQuery();
             q2.select('.w-marquee__group').boundingClientRect();
             q2.exec((res2) => {
-              if (!res2[0]) return;
+              if (!res2[0] || res2[0].width <= 0) return;
               this._setDuration(res2[0].width);
             });
           });
@@ -76,7 +77,7 @@ Component({
 
     _setDuration(groupWidth) {
       const duration = groupWidth / this.data.speed;
-      this.setData({ _duration: duration });
+      this.setData({ _duration: duration, _play: 'running' });
     },
 
     _applyStyle() {
@@ -86,23 +87,10 @@ Component({
       });
     },
 
-    onAnimationIteration() {
-      if (this.data._userPaused) return;
-      this.setData({ _play: 'paused' });
-      wx.nextTick(() => {
-        setTimeout(() => {
-          this.setData({ _play: 'running' });
-        }, 0);
-      });
-    },
-
     onTap() {
       if (!this.data.pauseOnTap) return;
-      const paused = !this.data._userPaused;
-      this.setData({
-        _userPaused: paused,
-        _play: paused ? 'paused' : 'running',
-      });
+      const play = this.data._play === 'running' ? 'paused' : 'running';
+      this.setData({ _play: play });
     },
   },
 });
