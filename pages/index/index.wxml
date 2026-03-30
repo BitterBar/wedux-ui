@@ -221,6 +221,14 @@
             <view class="iconfont icon-right catalog-item__arrow"></view>
           </navigator>
           <navigator
+            url="/packages/docs/marquee/marquee"
+            hover-class="catalog-item--active"
+            class="catalog-item"
+          >
+            <view class="catalog-item__name">Marquee 走马灯</view>
+            <view class="iconfont icon-right catalog-item__arrow"></view>
+          </navigator>
+          <navigator
             url="/packages/docs/back-top/back-top"
             hover-class="catalog-item--active"
             class="catalog-item"
