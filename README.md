@@ -18,7 +18,9 @@ npm install wedux-ui
 
 安装后在**微信开发者工具**中点击 **工具 → 构建 npm**，等待构建完成。
 
-在项目全局样式文件 `app.wxss` 中引入：
+> **注意**：本组件库使用 SCSS 编写，**微信开发者工具不会自动编译 SCSS**，需在 `project.config.json` 中添加 `"useCompilerPlugins": ["sass"]`。
+
+在项目全局样式文件 `app.scss` 中引入：
 
 ```scss
 @import 'wedux-ui/src/styles/iconfont.scss';
