@@ -23,9 +23,9 @@ npm install wedux-ui
 在项目全局样式文件 `app.scss` 中引入：
 
 ```scss
-@import 'wedux-ui/src/styles/iconfont.scss';
-@import 'wedux-ui/src/styles/tokens.scss';
-@import 'wedux-ui/src/styles/theme.scss';
+@import './miniprogram_dist/styles/iconfont.scss';
+@import './miniprogram_dist/styles/tokens.scss';
+@import './miniprogram_dist/styles/theme.scss';
 ```
 
 ## 快速上手
