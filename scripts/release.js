@@ -1,6 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 const { parseArgs } = require('util');
+const semver = require('semver');
+const pico = require('picocolors');
+const { prompt } = require('enquirer');
 const { exec, execInteractive } = require('./utils');
 
 const pkgPath = path.resolve(__dirname, '../package.json');
@@ -12,72 +15,82 @@ let versionUpdated = false;
 const { values: args, positionals } = parseArgs({
   allowPositionals: true,
   options: {
+    preid: { type: 'string' },
     dry: { type: 'boolean' },
     tag: { type: 'string' },
     skipBuild: { type: 'boolean' },
     skipGit: { type: 'boolean' },
     skipPrompts: { type: 'boolean' },
     registry: { type: 'string' },
+    publishOnly: { type: 'boolean' },
   },
 });
 
+const preId = args.preid || semver.prerelease(currentVersion)?.[0];
 const isDryRun = args.dry;
 
 const run = async (bin, runArgs, opts = {}) => execInteractive(bin, runArgs, opts);
 
 const dryRun = async (bin, runArgs, opts = {}) =>
-  console.log(`\x1b[34m[dryrun] ${bin} ${runArgs.join(' ')}\x1b[0m`, opts);
+  console.log(pico.blue(`[dryrun] ${bin} ${runArgs.join(' ')}`), opts);
 
 const runIfNotDry = isDryRun ? dryRun : run;
 
-const step = (msg) => console.log(`\x1b[36m${msg}\x1b[0m`);
+const step = (msg) => console.log(pico.cyan(msg));
 
-const versionIncrements = ['patch', 'minor', 'major'];
+const versionIncrements = [
+  'patch',
+  'minor',
+  'major',
+  ...(preId ? ['prepatch', 'preminor', 'premajor', 'prerelease'] : []),
+];
 
-const inc = (i) => {
-  const parts = currentVersion.split('.').map(Number);
-  if (i === 'patch') {
-    parts[2]++;
-  } else if (i === 'minor') {
-    parts[1]++;
-    parts[2] = 0;
-  } else if (i === 'major') {
-    parts[0]++;
-    parts[1] = 0;
-    parts[2] = 0;
-  }
-  return parts.join('.');
-};
+const inc = (i) => semver.inc(currentVersion, i, typeof preId === 'string' ? preId : undefined);
 
-const prompt = async (message, choices) => {
-  const readline = require('readline');
-  const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-  });
+async function getSha() {
+  return (await exec('git', ['rev-parse', 'HEAD'])).stdout;
+}
 
-  return new Promise((resolve) => {
-    if (choices) {
-      console.log();
-      choices.forEach((c, i) => console.log(`  ${i + 1}) ${c}`));
-      rl.question(`\n${message} `, (answer) => {
-        rl.close();
-        const idx = parseInt(answer, 10) - 1;
-        resolve(choices[idx] || answer);
-      });
+async function getBranch() {
+  return (await exec('git', ['rev-parse', '--abbrev-ref', 'HEAD'])).stdout;
+}
+
+async function isInSyncWithRemote() {
+  try {
+    const branch = await getBranch();
+    const res = await fetch(
+      `https://api.github.com/repos/BitterBar/wedux-ui/commits/${branch}?per_page=1`,
+    );
+    const data = await res.json();
+    if (data.sha === (await getSha())) {
+      return true;
     } else {
-      rl.question(`${message} `, (answer) => {
-        rl.close();
-        resolve(answer);
+      if (args.skipPrompts) {
+        console.error(pico.red('Local HEAD is not up-to-date with remote.'));
+        return false;
+      }
+      const { yes } = await prompt({
+        type: 'confirm',
+        name: 'yes',
+        message: pico.red(
+          'Local HEAD is not up-to-date with remote. Are you sure you want to continue?',
+        ),
       });
+      return yes;
     }
-  });
-};
+  } catch {
+    console.error(pico.red('Failed to check whether local HEAD is up-to-date with remote.'));
+    return false;
+  }
+}
 
-const confirm = async (message) => {
-  const answer = await prompt(`${message} (y/n)`);
-  return answer === 'y' || answer === 'Y';
-};
+function getPublishTag(version) {
+  if (args.tag) return args.tag;
+  if (version.includes('alpha')) return 'alpha';
+  if (version.includes('beta')) return 'beta';
+  if (version.includes('rc')) return 'rc';
+  return null;
+}
 
 const updateVersion = (version) => {
   const pkg = getPkg();
@@ -86,28 +99,52 @@ const updateVersion = (version) => {
 };
 
 async function main() {
+  if (!(await isInSyncWithRemote())) {
+    return;
+  } else {
+    console.log(`${pico.green('✓')} Commit is up-to-date with remote.\n`);
+  }
+
   let targetVersion = positionals[0];
 
   if (!targetVersion) {
-    const choices = versionIncrements.map((i) => `${i} (${inc(i)})`);
-    choices.push('custom');
-
-    const release = await prompt('Select release type:', choices);
+    const { release } = await prompt({
+      type: 'select',
+      name: 'release',
+      message: 'Select release type',
+      choices: versionIncrements.map((i) => `${i} (${inc(i)})`).concat(['custom']),
+    });
 
     if (release === 'custom') {
-      targetVersion = await prompt(`Input custom version (current: ${currentVersion}):`);
+      const { version } = await prompt({
+        type: 'input',
+        name: 'version',
+        message: 'Input custom version',
+        initial: currentVersion,
+      });
+      targetVersion = version;
     } else {
       targetVersion = release.match(/\((.*)\)/)?.[1] ?? '';
     }
   }
 
-  if (!/^\d+\.\d+\.\d+/.test(targetVersion)) {
+  if (versionIncrements.includes(targetVersion)) {
+    targetVersion = inc(targetVersion);
+  }
+
+  if (!semver.valid(targetVersion)) {
     throw new Error(`Invalid target version: ${targetVersion}`);
   }
 
   if (!args.skipPrompts) {
-    const yes = await confirm(`Releasing v${targetVersion}. Confirm?`);
+    const { yes } = await prompt({
+      type: 'confirm',
+      name: 'yes',
+      message: `Releasing v${targetVersion}. Confirm?`,
+    });
     if (!yes) return;
+  } else {
+    step(`Releasing v${targetVersion}...`);
   }
 
   // build
@@ -121,12 +158,25 @@ async function main() {
   updateVersion(targetVersion);
   versionUpdated = true;
 
+  // generate changelog
+  step('\nGenerating changelog...');
+  await run('pnpm', ['run', 'changelog']);
+
+  if (!args.skipPrompts) {
+    const { yes } = await prompt({
+      type: 'confirm',
+      name: 'yes',
+      message: 'Changelog generated. Does it look good?',
+    });
+    if (!yes) return;
+  }
+
   if (!args.skipGit) {
     const { stdout } = await exec('git', ['diff']);
     if (stdout) {
       step('\nCommitting changes...');
       await runIfNotDry('git', ['add', '-A']);
-      await runIfNotDry('git', ['commit', '-m', `"release: v${targetVersion}"`]);
+      await runIfNotDry('git', ['commit', '-m', `release: v${targetVersion}`]);
     } else {
       console.log('No changes to commit.');
     }
@@ -134,17 +184,27 @@ async function main() {
 
   // publish
   step('\nPublishing...');
+  const releaseTag = getPublishTag(targetVersion);
   const publishArgs = [
     'publish',
     '--access',
     'public',
-    ...(args.tag ? ['--tag', args.tag] : []),
+    ...(releaseTag ? ['--tag', releaseTag] : []),
     ...(args.registry ? ['--registry', args.registry] : []),
     ...(isDryRun ? ['--dry-run'] : []),
     ...(isDryRun || args.skipGit ? ['--no-git-checks'] : []),
   ];
-  await run('pnpm', publishArgs);
-  console.log(`\x1b[32mSuccessfully published wedux-ui@${targetVersion}\x1b[0m`);
+
+  try {
+    await run('pnpm', publishArgs);
+    console.log(pico.green(`Successfully published wedux-ui@${targetVersion}`));
+  } catch (e) {
+    if (e.message?.match(/previously published/)) {
+      console.log(pico.red(`Skipping already published: wedux-ui@${targetVersion}`));
+    } else {
+      throw e;
+    }
+  }
 
   // git tag & push
   if (!args.skipGit) {
@@ -161,7 +221,46 @@ async function main() {
   console.log();
 }
 
-main().catch((err) => {
+async function publishOnly() {
+  const targetVersion = positionals[0];
+  if (targetVersion) {
+    updateVersion(targetVersion);
+    versionUpdated = true;
+  }
+
+  if (!args.skipBuild) {
+    step('\nBuilding...');
+    await run('node', [path.resolve(__dirname, 'build.js')]);
+  }
+
+  step('\nPublishing...');
+  const version = getPkg().version;
+  const releaseTag = getPublishTag(version);
+  const publishArgs = [
+    'publish',
+    '--access',
+    'public',
+    ...(releaseTag ? ['--tag', releaseTag] : []),
+    ...(args.registry ? ['--registry', args.registry] : []),
+    ...(isDryRun ? ['--dry-run'] : []),
+    '--no-git-checks',
+  ];
+
+  try {
+    await run('pnpm', publishArgs);
+    console.log(pico.green(`Successfully published wedux-ui@${version}`));
+  } catch (e) {
+    if (e.message?.match(/previously published/)) {
+      console.log(pico.red(`Skipping already published: wedux-ui@${version}`));
+    } else {
+      throw e;
+    }
+  }
+}
+
+const fnToRun = args.publishOnly ? publishOnly : main;
+
+fnToRun().catch((err) => {
   if (versionUpdated) {
     updateVersion(currentVersion);
   }
