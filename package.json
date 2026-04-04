@@ -14,14 +14,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BitterBar/wxma-ui.git"
+    "url": "git+https://github.com/BitterBar/wedux-ui.git"
   },
   "author": "L",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/BitterBar/wxma-ui/issues"
+    "url": "https://github.com/BitterBar/wedux-ui/issues"
   },
-  "homepage": "https://github.com/BitterBar/wxma-ui#readme",
+  "homepage": "https://github.com/BitterBar/wedux-ui#readme",
   "packageManager": "pnpm@10.26.0",
   "scripts": {
     "build": "node scripts/build.js",
